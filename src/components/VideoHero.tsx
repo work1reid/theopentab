@@ -1,10 +1,6 @@
-"use client";
-
-import OnAirIndicator from "./OnAirIndicator";
-
 export default function VideoHero() {
   return (
-    <section className="relative h-[100svh] min-h-[600px] w-full overflow-hidden scanlines">
+    <section className="relative h-[86svh] min-h-[520px] w-full overflow-hidden scanlines">
       {/* Video layer — the episode intro montage */}
       <video
         className="absolute inset-0 h-full w-full object-cover"
@@ -18,29 +14,22 @@ export default function VideoHero() {
       />
 
       {/* Tints for legibility */}
-      <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-ink/55" />
-      <div className="absolute inset-0 bg-ink/30" />
+      <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/35 to-ink/45" />
+      <div className="absolute inset-0 bg-ink/25" />
 
-      {/* Top meta row */}
-      <div className="absolute top-0 left-0 right-0 z-10">
-        <div className="mx-auto max-w-[1600px] px-6 md:px-10 pt-20 md:pt-24 flex items-center justify-between font-mono text-[0.6rem] md:text-[0.62rem] tracking-[0.22em] text-bone/70 uppercase">
-          <div className="flex items-center gap-4 md:gap-6">
-            <OnAirIndicator variant="hero" />
-            <span className="hidden sm:inline">Forbes · NSW</span>
-          </div>
-          <span className="hidden md:inline">FRQ 89.7 · Stereo</span>
-        </div>
-      </div>
-
-      {/* Giant bottom-anchored wordmark */}
+      {/* Bottom-anchored wordmark + status line */}
       <div className="absolute inset-x-0 bottom-0 z-10">
-        <div className="mx-auto max-w-[1600px] px-6 md:px-10 pb-14 md:pb-20">
-          <div className="font-mono text-[0.62rem] tracking-[0.22em] text-bone/70 uppercase mb-3 tick">
-            A podcast hosted by Max Reid
+        <div className="mx-auto max-w-[1600px] px-6 md:px-10 pb-12 md:pb-14">
+          <div className="flex items-center gap-4 font-mono text-[0.6rem] tracking-[0.22em] text-bone/70 uppercase mb-3">
+            <span className="tick">A podcast hosted by Max Reid</span>
+            <span className="hidden md:inline text-bone/40">·</span>
+            <span className="hidden md:inline text-bone/40">Forbes, NSW</span>
+            <span className="hidden lg:inline text-bone/40">·</span>
+            <span className="hidden lg:inline text-bone/40">FRQ 89.7</span>
           </div>
           <h1 className="font-display font-black tracking-tightest leading-[0.82] text-bone drop-shadow-[0_2px_30px_rgba(0,0,0,0.6)]">
-            <span className="block text-[clamp(2.5rem,8vw,7.5rem)]">The Open</span>
-            <span className="block text-[clamp(2.5rem,8vw,7.5rem)] italic text-signal font-normal">
+            <span className="block text-[clamp(2.25rem,6.5vw,6rem)]">The Open</span>
+            <span className="block text-[clamp(2.25rem,6.5vw,6rem)] italic text-signal font-normal">
               Tab.
             </span>
           </h1>
@@ -48,7 +37,7 @@ export default function VideoHero() {
       </div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-5 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-1.5">
+      <div className="absolute bottom-5 right-6 md:right-10 z-10 flex items-center gap-2">
         <span className="font-mono text-[0.55rem] tracking-[0.3em] text-bone/60 uppercase">
           Scroll
         </span>
