@@ -1,0 +1,253 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --ink: #0d0d0d;
+  --bone: #f0f0f0;
+  --signal: #ff4d4d;
+  --ghost: rgba(255, 255, 255, 0.3);
+  --edge: rgba(255, 255, 255, 0.12);
+  --whisper: rgba(255, 255, 255, 0.06);
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html,
+body {
+  background: var(--ink);
+  color: var(--bone);
+  font-family: "Space Mono", ui-monospace, monospace;
+  font-feature-settings: "ss01", "ss02";
+}
+
+::selection {
+  background: var(--signal);
+  color: var(--ink);
+}
+
+.font-display {
+  font-family: "Playfair Display", ui-serif, Georgia, serif;
+  font-feature-settings: "liga", "kern", "onum";
+}
+
+/* Scan lines — fine horizontal CRT bands */
+.scanlines {
+  position: relative;
+}
+.scanlines::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.025) 0px,
+    rgba(255, 255, 255, 0.025) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  pointer-events: none;
+  z-index: 2;
+  mix-blend-mode: overlay;
+  animation: scan-drift 8s linear infinite;
+}
+
+@keyframes scan-drift {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 3px;
+  }
+}
+
+/* Film grain — SVG noise, low opacity, fixed overlay */
+.grain {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 50;
+  opacity: 0.07;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1   0 0 0 0 1   0 0 0 0 1   0 0 0 0.5 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  background-size: 220px 220px;
+}
+
+/* Vignette — subtle dark edges */
+.vignette::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at center,
+    transparent 50%,
+    rgba(0, 0, 0, 0.6) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Studio-style underline used on labels */
+.tick {
+  position: relative;
+  padding-left: 1.25rem;
+}
+.tick::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 0.75rem;
+  height: 1px;
+  background: var(--signal);
+}
+
+/* Slow horizontal marquee strip */
+.marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 60s linear infinite;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Cursor anchor — large clickable area for the hero brand */
+.brand-anchor {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Subtle horizontal noise band — for section dividers */
+.hr-static {
+  height: 1px;
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.18) 0px,
+    rgba(255, 255, 255, 0.18) 6px,
+    transparent 6px,
+    transparent 11px
+  );
+}
+
+/* Slim outlined button */
+.btn-platform {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.875rem 1.5rem;
+  border: 1px solid var(--edge);
+  font-family: "Space Mono", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--bone);
+  background: transparent;
+  transition: all 0.18s ease;
+  position: relative;
+}
+.btn-platform:hover {
+  border-color: var(--signal);
+  color: var(--signal);
+}
+.btn-platform:hover .dot-corner {
+  background: var(--signal);
+}
+.dot-corner {
+  width: 6px;
+  height: 6px;
+  background: var(--bone);
+  border-radius: 9999px;
+  transition: background 0.18s ease;
+}
+
+/* Episode card hover lift */
+.ep-card {
+  transition: transform 0.4s cubic-bezier(0.2, 0.7, 0.2, 1),
+    border-color 0.3s ease;
+}
+.ep-card:hover {
+  border-color: var(--signal);
+}
+.ep-card:hover .ep-num {
+  color: var(--signal);
+}
+
+/* Big number watermark */
+.watermark {
+  font-family: "Playfair Display", serif;
+  font-style: italic;
+  font-weight: 400;
+  color: rgba(255, 77, 77, 0.08);
+  user-select: none;
+  pointer-events: none;
+}
+
+/* Page-load reveal — slide-up only, content stays visible if JS/anim hasn't fired */
+.reveal {
+  animation: slideUp 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+.reveal-2 {
+  animation-delay: 0.1s;
+}
+.reveal-3 {
+  animation-delay: 0.2s;
+}
+.reveal-4 {
+  animation-delay: 0.3s;
+}
+.reveal-5 {
+  animation-delay: 0.4s;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(14px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+/* Hide scrollbars but keep scrollable */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  scrollbar-width: none;
+}
+
+/* Pulse ring around ON AIR dot */
+.dot-ring {
+  position: relative;
+}
+.dot-ring::after {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border-radius: 9999px;
+  border: 1px solid var(--signal);
+  opacity: 0;
+  animation: pulse-ring 2.4s cubic-bezier(0.2, 0.7, 0.2, 1) infinite;
+}
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
