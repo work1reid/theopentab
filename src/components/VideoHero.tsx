@@ -24,8 +24,6 @@ export default function VideoHero() {
             <span className="tick">A podcast hosted by Max Reid</span>
             <span className="hidden md:inline text-bone/55">·</span>
             <span className="hidden md:inline text-bone/70">Forbes, NSW</span>
-            <span className="hidden lg:inline text-bone/55">·</span>
-            <span className="hidden lg:inline text-bone/70">FRQ 89.7</span>
           </div>
           <h1 className="font-display font-black tracking-tightest leading-[0.82] text-bone drop-shadow-[0_2px_30px_rgba(0,0,0,0.6)]">
             <span className="block text-[clamp(2.75rem,7.5vw,7rem)]">The Open</span>

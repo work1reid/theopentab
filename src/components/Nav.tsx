@@ -23,9 +23,6 @@ export default function Nav() {
             <span className="hidden sm:inline font-display text-base sm:text-lg leading-none whitespace-nowrap">
               The Open Tab
             </span>
-            <span className="hidden lg:inline font-mono text-[0.72rem] tracking-[0.22em] text-ghost uppercase">
-              FRQ 01
-            </span>
           </Link>
         </div>
 
