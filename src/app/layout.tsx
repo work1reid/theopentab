@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Nav from "@/components/Nav";
-import Footer from "@/components/Footer";
 import FilmGrain from "@/components/FilmGrain";
 
 export const metadata: Metadata = {
@@ -19,9 +17,7 @@ export default function RootLayout({
     <html lang="en">
       <body className="bg-ink text-bone min-h-screen relative">
         <FilmGrain />
-        <Nav />
-        <main>{children}</main>
-        <Footer />
+        {children}
       </body>
     </html>
   );
