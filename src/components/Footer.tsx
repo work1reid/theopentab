@@ -12,21 +12,21 @@ export default function Footer() {
       <div className="mx-auto max-w-[1600px] px-6 md:px-10 py-16">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
           <div className="md:col-span-5">
-            <div className="font-mono text-[0.65rem] tracking-[0.22em] text-ghost uppercase mb-4 tick">
+            <div className="font-mono text-[0.78rem] tracking-[0.22em] text-ghost uppercase mb-4 tick">
               The Open Tab
             </div>
             <p className="font-display text-3xl md:text-4xl leading-[1.05] tracking-snug">
               Unearthing the<br />
               <span className="italic text-signal">uncommon.</span>
             </p>
-            <p className="mt-6 font-mono text-xs text-ghost max-w-sm leading-relaxed">
+            <p className="mt-6 font-mono text-sm text-ghost max-w-sm leading-relaxed">
               Long conversations with people worth listening to.
               Hosted by Max Reid. Recorded in Forbes, NSW.
             </p>
           </div>
 
           <div className="md:col-span-3 md:col-start-7">
-            <div className="font-mono text-[0.62rem] tracking-[0.22em] text-ghost uppercase mb-4">
+            <div className="font-mono text-[0.74rem] tracking-[0.22em] text-ghost uppercase mb-4">
               Follow
             </div>
             <ul className="space-y-2">
@@ -51,7 +51,7 @@ export default function Footer() {
           </div>
 
           <div className="md:col-span-3">
-            <div className="font-mono text-[0.62rem] tracking-[0.22em] text-ghost uppercase mb-4">
+            <div className="font-mono text-[0.74rem] tracking-[0.22em] text-ghost uppercase mb-4">
               Listen
             </div>
             <ul className="space-y-2 font-mono text-sm">
@@ -75,10 +75,13 @@ export default function Footer() {
         </div>
 
         <div className="mt-20 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
-          <div className="font-mono text-[0.62rem] tracking-[0.22em] text-ghost uppercase">
+          <div className="font-mono text-[0.74rem] tracking-[0.22em] text-ghost uppercase">
             © 2026 The Open Tab · Forbes NSW
           </div>
-          <div className="font-mono text-[0.62rem] tracking-[0.22em] text-ghost uppercase">
+          <div
+            className="font-mono text-[0.74rem] tracking-[0.22em] text-ghost uppercase"
+            suppressHydrationWarning
+          >
             Transmission · Studio One · {new Date().toLocaleDateString("en-AU")}
           </div>
         </div>

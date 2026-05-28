@@ -20,28 +20,28 @@ export default function EpisodeCard({ episode, variant = "grid" }: Props) {
             <div className="ep-num font-display text-5xl md:text-6xl leading-none transition-colors">
               {episode.number}
             </div>
-            <div className="mt-2 font-mono text-[0.6rem] tracking-[0.22em] text-ghost uppercase">
+            <div className="mt-2 font-mono text-[0.72rem] tracking-[0.22em] text-ghost uppercase">
               {formatDate(episode.date)}
             </div>
           </div>
 
           <div className="col-span-9 md:col-span-7">
-            <div className="font-mono text-[0.62rem] tracking-[0.22em] text-ghost uppercase mb-2">
+            <div className="font-mono text-[0.74rem] tracking-[0.22em] text-ghost uppercase mb-2">
               Guest · {episode.guest}
             </div>
             <h3 className="font-display text-xl md:text-2xl leading-snug tracking-snug text-bone group-hover:text-signal transition-colors">
               {episode.title}
             </h3>
-            <p className="mt-3 font-mono text-xs text-ghost max-w-prose leading-relaxed">
+            <p className="mt-3 font-mono text-sm text-ghost max-w-prose leading-relaxed">
               {episode.tagline}
             </p>
           </div>
 
           <div className="hidden md:flex md:col-span-3 flex-col items-end gap-3">
-            <div className="font-mono text-[0.62rem] tracking-[0.22em] text-ghost uppercase">
+            <div className="font-mono text-[0.74rem] tracking-[0.22em] text-ghost uppercase">
               {episode.duration}
             </div>
-            <div className="flex items-center gap-2 font-mono text-[0.62rem] tracking-[0.22em] uppercase text-bone">
+            <div className="flex items-center gap-2 font-mono text-[0.74rem] tracking-[0.22em] uppercase text-bone">
               <a href={episode.spotify} className="hover:text-signal">SPF</a>
               <span className="text-ghost">·</span>
               <a href={episode.apple} className="hover:text-signal">APL</a>
@@ -63,13 +63,13 @@ export default function EpisodeCard({ episode, variant = "grid" }: Props) {
         {episode.number}
       </div>
 
-      <div className="flex items-center justify-between font-mono text-[0.6rem] tracking-[0.22em] uppercase text-ghost relative z-10">
+      <div className="flex items-center justify-between font-mono text-[0.72rem] tracking-[0.22em] uppercase text-ghost relative z-10">
         <span>EP · {episode.number}</span>
         <span>{formatDate(episode.date)}</span>
       </div>
 
       <div className="mt-12 md:mt-16 relative z-10">
-        <div className="font-mono text-[0.62rem] tracking-[0.22em] text-ghost uppercase mb-2">
+        <div className="font-mono text-[0.74rem] tracking-[0.22em] text-ghost uppercase mb-2">
           Guest
         </div>
         <div className="font-display text-2xl md:text-3xl leading-tight tracking-snug">
@@ -79,12 +79,12 @@ export default function EpisodeCard({ episode, variant = "grid" }: Props) {
             episode.guest
           )}
         </div>
-        <p className="mt-4 font-mono text-xs text-ghost leading-relaxed line-clamp-3">
+        <p className="mt-4 font-mono text-sm text-ghost leading-relaxed line-clamp-3">
           {episode.tagline}
         </p>
       </div>
 
-      <div className="mt-8 pt-4 border-t border-edge flex items-center justify-between font-mono text-[0.6rem] tracking-[0.22em] uppercase relative z-10">
+      <div className="mt-8 pt-4 border-t border-edge flex items-center justify-between font-mono text-[0.72rem] tracking-[0.22em] uppercase relative z-10">
         <span className="text-ghost">{episode.duration}</span>
         <span className="text-bone group-hover:text-signal transition-colors">
           {upcoming ? "Notify" : "Listen →"}

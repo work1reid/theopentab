@@ -7,7 +7,7 @@ export default function EpisodeTiles({ episodes }: { episodes: Episode[] }) {
       <div className="mx-auto max-w-[1600px] px-6 md:px-10 pt-16 md:pt-20 pb-10">
         <div className="flex items-end justify-between">
           <div>
-            <div className="tick font-mono text-[0.62rem] tracking-[0.22em] text-ghost uppercase mb-3">
+            <div className="tick font-mono text-[0.74rem] tracking-[0.22em] text-ghost uppercase mb-3">
               The catalogue
             </div>
             <h2 className="font-display text-4xl md:text-5xl leading-none tracking-snug">
@@ -16,7 +16,7 @@ export default function EpisodeTiles({ episodes }: { episodes: Episode[] }) {
           </div>
           <Link
             href="/episodes"
-            className="hidden md:inline font-mono text-[0.7rem] tracking-[0.22em] uppercase text-ghost hover:text-signal transition-colors"
+            className="hidden md:inline font-mono text-[0.8rem] tracking-[0.22em] uppercase text-ghost hover:text-signal transition-colors"
           >
             All episodes →
           </Link>
@@ -43,14 +43,14 @@ export default function EpisodeTiles({ episodes }: { episodes: Episode[] }) {
               </div>
 
               {/* Top meta */}
-              <div className="absolute top-0 inset-x-0 p-6 flex items-center justify-between font-mono text-[0.6rem] tracking-[0.22em] uppercase text-bone/60">
+              <div className="absolute top-0 inset-x-0 p-6 flex items-center justify-between font-mono text-[0.72rem] tracking-[0.22em] uppercase text-bone/60">
                 <span>EP · {ep.number}</span>
                 <span>{formatDate(ep.date)}</span>
               </div>
 
               {/* Bottom label */}
               <div className="absolute bottom-0 inset-x-0 p-6">
-                <div className="font-mono text-[0.6rem] tracking-[0.22em] text-ghost uppercase mb-2">
+                <div className="font-mono text-[0.72rem] tracking-[0.22em] text-ghost uppercase mb-2">
                   {upcoming ? "Coming soon" : "Guest"}
                 </div>
                 <div className="font-display text-2xl md:text-3xl leading-[0.95] tracking-snug mb-3">
@@ -60,7 +60,7 @@ export default function EpisodeTiles({ episodes }: { episodes: Episode[] }) {
                     ep.guest
                   )}
                 </div>
-                <div className="flex items-center gap-2 font-mono text-[0.62rem] tracking-[0.22em] uppercase text-bone group-hover:text-signal transition-colors">
+                <div className="flex items-center gap-2 font-mono text-[0.74rem] tracking-[0.22em] uppercase text-bone group-hover:text-signal transition-colors">
                   <span className="w-6 h-px bg-current transition-all group-hover:w-10" />
                   {upcoming ? "Notify" : "Listen"}
                   <span className="text-signal opacity-0 group-hover:opacity-100 transition-opacity">

@@ -10,7 +10,7 @@ export default function EpisodesPage() {
       {/* Header */}
       <section className="relative scanlines">
         <div className="mx-auto max-w-[1600px] px-6 md:px-10 pt-10 md:pt-14 pb-10 md:pb-14">
-          <div className="flex items-center justify-between font-mono text-[0.62rem] tracking-[0.22em] text-ghost uppercase reveal">
+          <div className="flex items-center justify-between font-mono text-[0.74rem] tracking-[0.22em] text-ghost uppercase reveal">
             <span>Directory · {episodes.length} entries</span>
             <span>The Open Tab · Index</span>
           </div>
@@ -32,7 +32,7 @@ export default function EpisodesPage() {
       <section className="mx-auto max-w-[1600px] px-6 md:px-10">
         <div className="mt-8">
           {live.length > 0 && (
-            <div className="grid grid-cols-12 gap-6 items-baseline mb-2 font-mono text-[0.6rem] tracking-[0.22em] text-ghost uppercase border-b border-edge pb-3">
+            <div className="grid grid-cols-12 gap-6 items-baseline mb-2 font-mono text-[0.72rem] tracking-[0.22em] text-ghost uppercase border-b border-edge pb-3">
               <div className="col-span-2">Ep</div>
               <div className="col-span-7">Title · Guest</div>
               <div className="col-span-3 hidden md:block text-right">
@@ -61,7 +61,7 @@ export default function EpisodesPage() {
                   <div className="font-display text-7xl md:text-8xl leading-none text-signal italic">
                     {ep.number}
                   </div>
-                  <div className="mt-6 space-y-3 font-mono text-[0.62rem] tracking-[0.22em] text-ghost uppercase">
+                  <div className="mt-6 space-y-3 font-mono text-[0.74rem] tracking-[0.22em] text-ghost uppercase">
                     <div>
                       <span className="text-ghost/60">Aired</span>
                       <div className="text-bone mt-1">
@@ -80,7 +80,7 @@ export default function EpisodesPage() {
                 </div>
 
                 <div className="md:col-span-9">
-                  <div className="font-mono text-[0.62rem] tracking-[0.22em] text-ghost uppercase mb-3">
+                  <div className="font-mono text-[0.74rem] tracking-[0.22em] text-ghost uppercase mb-3">
                     Guest
                   </div>
                   <h3 className="font-display text-3xl md:text-5xl leading-[0.95] tracking-snug">
@@ -95,14 +95,14 @@ export default function EpisodesPage() {
 
                   {ep.highlights.length > 0 && (
                     <div className="mt-12">
-                      <div className="font-mono text-[0.62rem] tracking-[0.22em] text-ghost uppercase mb-4">
+                      <div className="font-mono text-[0.74rem] tracking-[0.22em] text-ghost uppercase mb-4">
                         Highlights
                       </div>
                       <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-2xl">
                         {ep.highlights.map((h, i) => (
                           <li
                             key={i}
-                            className="flex items-start gap-3 font-mono text-xs text-bone/80 border-l border-edge pl-4 py-1"
+                            className="flex items-start gap-3 font-mono text-sm text-bone/80 border-l border-edge pl-4 py-1"
                           >
                             <span>{h}</span>
                           </li>
@@ -135,7 +135,7 @@ export default function EpisodesPage() {
         {upcoming.length > 0 && (
           <section className="mt-40">
             <div className="border-t border-edge pt-16">
-              <div className="tick font-mono text-[0.62rem] tracking-[0.22em] text-ghost uppercase mb-6">
+              <div className="tick font-mono text-[0.74rem] tracking-[0.22em] text-ghost uppercase mb-6">
                 Upcoming
               </div>
               <h2 className="font-display text-3xl md:text-4xl leading-none tracking-snug mb-10">

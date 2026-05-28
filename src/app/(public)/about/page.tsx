@@ -3,7 +3,7 @@ export default function AboutPage() {
     <>
       <section className="relative scanlines">
         <div className="mx-auto max-w-[1600px] px-6 md:px-10 pt-10 md:pt-14 pb-10">
-          <div className="flex items-center justify-between font-mono text-[0.62rem] tracking-[0.22em] text-ghost uppercase reveal">
+          <div className="flex items-center justify-between font-mono text-[0.74rem] tracking-[0.22em] text-ghost uppercase reveal">
             <span>About · 001</span>
             <span>The Host · Max Reid</span>
           </div>
@@ -21,44 +21,44 @@ export default function AboutPage() {
           {/* Portrait */}
           <div className="md:col-span-4">
             <div className="aspect-[3/4] bg-whisper border border-edge relative overflow-hidden scanlines">
-              <div className="absolute inset-0 flex items-center justify-center font-mono text-[0.62rem] tracking-[0.22em] text-ghost uppercase">
+              <div className="absolute inset-0 flex items-center justify-center font-mono text-[0.74rem] tracking-[0.22em] text-ghost uppercase">
                 Portrait pending
               </div>
-              <div className="absolute top-4 left-4 font-mono text-[0.6rem] tracking-[0.22em] text-ghost uppercase">
+              <div className="absolute top-4 left-4 font-mono text-[0.72rem] tracking-[0.22em] text-ghost uppercase">
                 ID · Max Reid
               </div>
-              <div className="absolute bottom-4 right-4 font-mono text-[0.6rem] tracking-[0.22em] text-ghost uppercase">
+              <div className="absolute bottom-4 right-4 font-mono text-[0.72rem] tracking-[0.22em] text-ghost uppercase">
                 Forbes, NSW
               </div>
             </div>
 
-            <dl className="mt-10 space-y-4 font-mono text-xs">
+            <dl className="mt-10 space-y-4 font-mono text-sm">
               <div className="flex items-baseline justify-between gap-4 border-b border-edge pb-3">
-                <dt className="text-ghost uppercase text-[0.6rem] tracking-[0.22em]">
+                <dt className="text-ghost uppercase text-[0.72rem] tracking-[0.22em]">
                   Age
                 </dt>
                 <dd className="text-bone">18</dd>
               </div>
               <div className="flex items-baseline justify-between gap-4 border-b border-edge pb-3">
-                <dt className="text-ghost uppercase text-[0.6rem] tracking-[0.22em]">
+                <dt className="text-ghost uppercase text-[0.72rem] tracking-[0.22em]">
                   Based
                 </dt>
                 <dd className="text-bone">Forbes, NSW</dd>
               </div>
               <div className="flex items-baseline justify-between gap-4 border-b border-edge pb-3">
-                <dt className="text-ghost uppercase text-[0.6rem] tracking-[0.22em]">
+                <dt className="text-ghost uppercase text-[0.72rem] tracking-[0.22em]">
                   Day job
                 </dt>
                 <dd className="text-bone">Reid Exterior</dd>
               </div>
               <div className="flex items-baseline justify-between gap-4 border-b border-edge pb-3">
-                <dt className="text-ghost uppercase text-[0.6rem] tracking-[0.22em]">
+                <dt className="text-ghost uppercase text-[0.72rem] tracking-[0.22em]">
                   Show
                 </dt>
                 <dd className="text-bone">The Open Tab</dd>
               </div>
               <div className="flex items-baseline justify-between gap-4">
-                <dt className="text-ghost uppercase text-[0.6rem] tracking-[0.22em]">
+                <dt className="text-ghost uppercase text-[0.72rem] tracking-[0.22em]">
                   Since
                 </dt>
                 <dd className="text-bone">2026</dd>
@@ -70,7 +70,7 @@ export default function AboutPage() {
           <div className="md:col-span-8">
             <div className="space-y-12 max-w-2xl">
               <div>
-                <div className="tick font-mono text-[0.62rem] tracking-[0.22em] text-ghost uppercase mb-4">
+                <div className="tick font-mono text-[0.74rem] tracking-[0.22em] text-ghost uppercase mb-4">
                   Who I am
                 </div>
                 <p className="font-display text-xl md:text-2xl leading-snug tracking-snug text-bone/90">
@@ -82,7 +82,7 @@ export default function AboutPage() {
               </div>
 
               <div>
-                <div className="tick font-mono text-[0.62rem] tracking-[0.22em] text-ghost uppercase mb-4">
+                <div className="tick font-mono text-[0.74rem] tracking-[0.22em] text-ghost uppercase mb-4">
                   What this is
                 </div>
                 <p className="font-mono text-sm md:text-base text-bone/80 leading-relaxed">
@@ -101,7 +101,7 @@ export default function AboutPage() {
               </div>
 
               <div>
-                <div className="tick font-mono text-[0.62rem] tracking-[0.22em] text-ghost uppercase mb-4">
+                <div className="tick font-mono text-[0.74rem] tracking-[0.22em] text-ghost uppercase mb-4">
                   Why I'm doing this
                 </div>
                 <p className="font-mono text-sm md:text-base text-bone/80 leading-relaxed">
@@ -113,7 +113,7 @@ export default function AboutPage() {
               </div>
 
               <div>
-                <div className="tick font-mono text-[0.62rem] tracking-[0.22em] text-ghost uppercase mb-4">
+                <div className="tick font-mono text-[0.74rem] tracking-[0.22em] text-ghost uppercase mb-4">
                   How to reach me
                 </div>
                 <p className="font-mono text-sm md:text-base text-bone/80 leading-relaxed">
@@ -143,7 +143,7 @@ export default function AboutPage() {
                 doesn't usually happen.
               </span>
             </blockquote>
-            <div className="mt-10 font-mono text-[0.62rem] tracking-[0.22em] text-ghost uppercase">
+            <div className="mt-10 font-mono text-[0.74rem] tracking-[0.22em] text-ghost uppercase">
               — Max, on starting the show
             </div>
           </div>

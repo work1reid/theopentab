@@ -23,7 +23,7 @@ export default function Nav() {
             <span className="hidden sm:inline font-display text-base sm:text-lg leading-none whitespace-nowrap">
               The Open Tab
             </span>
-            <span className="hidden lg:inline font-mono text-[0.6rem] tracking-[0.22em] text-ghost uppercase">
+            <span className="hidden lg:inline font-mono text-[0.72rem] tracking-[0.22em] text-ghost uppercase">
               FRQ 01
             </span>
           </Link>
@@ -39,7 +39,7 @@ export default function Nav() {
               <Link
                 key={l.href}
                 href={l.href}
-                className={`group relative px-1.5 sm:px-2.5 md:px-3 py-2 font-mono text-[0.55rem] sm:text-[0.65rem] md:text-[0.72rem] tracking-[0.14em] sm:tracking-[0.2em] uppercase transition-colors ${
+                className={`group relative px-1.5 sm:px-2.5 md:px-3 py-2 font-mono text-[0.66rem] sm:text-[0.78rem] md:text-[0.72rem] tracking-[0.14em] sm:tracking-[0.2em] uppercase transition-colors ${
                   active ? "text-bone" : "text-ghost hover:text-bone"
                 }`}
               >

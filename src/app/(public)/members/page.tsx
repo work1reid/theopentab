@@ -15,7 +15,7 @@ export default function MembersPage() {
   return (
     <section className="relative scanlines vignette min-h-[80vh]">
       <div className="mx-auto max-w-[1600px] px-6 md:px-10 pt-10 md:pt-14 pb-24">
-        <div className="flex items-center justify-between font-mono text-[0.62rem] tracking-[0.22em] text-ghost uppercase reveal">
+        <div className="flex items-center justify-between font-mono text-[0.74rem] tracking-[0.22em] text-ghost uppercase reveal">
           <div className="flex items-center gap-4">
             <span className="inline-flex items-center gap-2">
               <span className="w-1.5 h-1.5 bg-signal rounded-full animate-flicker" />
@@ -30,7 +30,7 @@ export default function MembersPage() {
           {/* Locked badge */}
           <div className="md:col-span-4">
             <div className="aspect-square border border-edge p-8 flex flex-col justify-between relative overflow-hidden scanlines">
-              <div className="flex items-center justify-between font-mono text-[0.6rem] tracking-[0.22em] text-ghost uppercase">
+              <div className="flex items-center justify-between font-mono text-[0.72rem] tracking-[0.22em] text-ghost uppercase">
                 <span>● Sealed</span>
                 <span>VLT</span>
               </div>
@@ -80,7 +80,7 @@ export default function MembersPage() {
                 <div className="font-display italic text-2xl text-bone">
                   vault.
                 </div>
-                <div className="mt-2 font-mono text-[0.6rem] tracking-[0.22em] text-ghost uppercase">
+                <div className="mt-2 font-mono text-[0.72rem] tracking-[0.22em] text-ghost uppercase">
                   Coming Q3 2026
                 </div>
               </div>
@@ -109,7 +109,7 @@ export default function MembersPage() {
               {!submitted ? (
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <label className="block">
-                    <span className="font-mono text-[0.62rem] tracking-[0.22em] text-ghost uppercase mb-3 block">
+                    <span className="font-mono text-[0.74rem] tracking-[0.22em] text-ghost uppercase mb-3 block">
                       Join the waitlist
                     </span>
                     <div className="relative flex items-center gap-0 border border-edge focus-within:border-signal transition-colors">
@@ -123,25 +123,25 @@ export default function MembersPage() {
                       />
                       <button
                         type="submit"
-                        className="bg-signal text-ink px-5 py-4 font-mono text-[0.62rem] tracking-[0.22em] uppercase hover:bg-bone transition-colors"
+                        className="bg-signal text-ink px-5 py-4 font-mono text-[0.74rem] tracking-[0.22em] uppercase hover:bg-bone transition-colors"
                       >
                         Request →
                       </button>
                     </div>
                   </label>
-                  <p className="font-mono text-[0.65rem] text-ghost leading-relaxed">
+                  <p className="font-mono text-[0.78rem] text-ghost leading-relaxed">
                     No spam. One email when the vault opens. That's it.
                   </p>
                 </form>
               ) : (
                 <div className="border border-signal p-6">
-                  <div className="font-mono text-[0.62rem] tracking-[0.22em] text-signal uppercase mb-3">
+                  <div className="font-mono text-[0.74rem] tracking-[0.22em] text-signal uppercase mb-3">
                     ● Request received
                   </div>
                   <p className="font-display text-2xl leading-snug">
                     You're on the list, <span className="italic">{email}</span>.
                   </p>
-                  <p className="mt-4 font-mono text-xs text-ghost leading-relaxed">
+                  <p className="mt-4 font-mono text-sm text-ghost leading-relaxed">
                     I'll write to you when the vault opens. Until then —
                     listen to the show.
                   </p>
@@ -178,7 +178,7 @@ export default function MembersPage() {
                   <div className="mt-6 font-display text-xl leading-tight">
                     {b.h}
                   </div>
-                  <p className="mt-3 font-mono text-[0.7rem] text-ghost leading-relaxed">
+                  <p className="mt-3 font-mono text-[0.8rem] text-ghost leading-relaxed">
                     {b.d}
                   </p>
                 </div>

@@ -23,7 +23,7 @@ export default function Timeline() {
   return (
     <section className="border-t border-edge">
       <div className="mx-auto max-w-[1600px] px-6 md:px-10 py-20 md:py-28">
-        <div className="tick font-mono text-[0.62rem] tracking-[0.22em] text-ghost uppercase mb-4">
+        <div className="tick font-mono text-[0.74rem] tracking-[0.22em] text-ghost uppercase mb-4">
           The story so far
         </div>
         <h2 className="font-display text-4xl md:text-6xl leading-[0.9] tracking-snug mb-16 md:mb-24">
@@ -51,7 +51,7 @@ export default function Timeline() {
                     <div className="font-display font-black text-signal text-6xl md:text-8xl leading-none tracking-tightest">
                       {m.year}
                     </div>
-                    <div className="mt-2 font-mono text-[0.6rem] tracking-[0.22em] text-ghost uppercase">
+                    <div className="mt-2 font-mono text-[0.72rem] tracking-[0.22em] text-ghost uppercase">
                       ● {m.place}
                     </div>
                   </div>
@@ -66,7 +66,7 @@ export default function Timeline() {
                       {m.title}
                     </h3>
                     <p
-                      className={`font-mono text-xs md:text-sm text-ghost leading-relaxed max-w-md ${
+                      className={`font-mono text-sm md:text-sm text-ghost leading-relaxed max-w-md ${
                         flip ? "md:ml-auto" : ""
                       }`}
                     >

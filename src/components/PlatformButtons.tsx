@@ -11,7 +11,7 @@ export default function PlatformButtons() {
         <a key={p.label} href={p.href} className="btn-platform">
           <span className="dot-corner" aria-hidden />
           <span>{p.label}</span>
-          <span className="text-ghost ml-2 text-[0.6rem]">{p.code}</span>
+          <span className="text-ghost ml-2 text-[0.72rem]">{p.code}</span>
         </a>
       ))}
     </div>

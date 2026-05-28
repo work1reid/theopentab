@@ -17,8 +17,8 @@ export default function OnAirIndicator({ variant = "nav" }: Props) {
       <span
         className={`font-mono uppercase tracking-[0.22em] whitespace-nowrap ${
           isHero
-            ? "text-[0.7rem]"
-            : "hidden sm:inline text-[0.62rem]"
+            ? "text-[0.8rem]"
+            : "hidden sm:inline text-[0.74rem]"
         } text-bone`}
       >
         On Air

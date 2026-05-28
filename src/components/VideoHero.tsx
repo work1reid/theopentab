@@ -20,7 +20,7 @@ export default function VideoHero() {
       {/* Bottom-anchored wordmark + status line */}
       <div className="absolute inset-x-0 bottom-0 z-10">
         <div className="mx-auto max-w-[1600px] px-6 md:px-10 pb-12 md:pb-14">
-          <div className="flex items-center gap-4 font-mono text-[0.6rem] tracking-[0.22em] text-bone/85 uppercase mb-3">
+          <div className="flex items-center gap-4 font-mono text-[0.72rem] tracking-[0.22em] text-bone/85 uppercase mb-3">
             <span className="tick">A podcast hosted by Max Reid</span>
             <span className="hidden md:inline text-bone/55">·</span>
             <span className="hidden md:inline text-bone/70">Forbes, NSW</span>
@@ -38,7 +38,7 @@ export default function VideoHero() {
 
       {/* Scroll indicator */}
       <div className="absolute bottom-5 right-6 md:right-10 z-10 flex items-center gap-2">
-        <span className="font-mono text-[0.55rem] tracking-[0.3em] text-bone/60 uppercase">
+        <span className="font-mono text-[0.66rem] tracking-[0.3em] text-bone/60 uppercase">
           Scroll
         </span>
         <span className="text-signal animate-bounce text-sm">↓</span>
