@@ -1,43 +1,24 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
 import OnAirIndicator from "./OnAirIndicator";
 
-const clips = ["/hero/hero-1.mp4", "/hero/hero-2.mp4"];
-
 export default function VideoHero() {
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const [idx, setIdx] = useState(0);
-
-  useEffect(() => {
-    const v = videoRef.current;
-    if (!v) return;
-    const onEnded = () => setIdx((i) => (i + 1) % clips.length);
-    v.addEventListener("ended", onEnded);
-    return () => v.removeEventListener("ended", onEnded);
-  }, []);
-
-  useEffect(() => {
-    const v = videoRef.current;
-    if (v) v.play().catch(() => {});
-  }, [idx]);
-
   return (
     <section className="relative h-[100svh] min-h-[600px] w-full overflow-hidden scanlines">
-      {/* Video layer */}
+      {/* Video layer — the episode intro montage */}
       <video
-        ref={videoRef}
         className="absolute inset-0 h-full w-full object-cover"
-        src={clips[idx]}
-        poster="/hero/hero-poster.jpg"
+        src="/hero/intro.mp4"
+        poster="/hero/intro-poster.jpg"
         autoPlay
         muted
+        loop
         playsInline
         preload="auto"
       />
 
       {/* Tints for legibility */}
-      <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-ink/60" />
+      <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-ink/55" />
       <div className="absolute inset-0 bg-ink/30" />
 
       {/* Top meta row */}
@@ -53,13 +34,13 @@ export default function VideoHero() {
 
       {/* Giant bottom-anchored wordmark */}
       <div className="absolute inset-x-0 bottom-0 z-10">
-        <div className="mx-auto max-w-[1600px] px-6 md:px-10 pb-16 md:pb-20">
-          <div className="font-mono text-[0.62rem] tracking-[0.22em] text-bone/70 uppercase mb-4 tick">
+        <div className="mx-auto max-w-[1600px] px-6 md:px-10 pb-14 md:pb-20">
+          <div className="font-mono text-[0.62rem] tracking-[0.22em] text-bone/70 uppercase mb-3 tick">
             A podcast hosted by Max Reid
           </div>
           <h1 className="font-display font-black tracking-tightest leading-[0.82] text-bone drop-shadow-[0_2px_30px_rgba(0,0,0,0.6)]">
-            <span className="block text-[clamp(3rem,11vw,11rem)]">The Open</span>
-            <span className="block text-[clamp(3rem,11vw,11rem)] italic text-signal font-normal -mt-1">
+            <span className="block text-[clamp(2.5rem,8vw,7.5rem)]">The Open</span>
+            <span className="block text-[clamp(2.5rem,8vw,7.5rem)] italic text-signal font-normal">
               Tab.
             </span>
           </h1>
@@ -67,7 +48,7 @@ export default function VideoHero() {
       </div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2">
+      <div className="absolute bottom-5 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-1.5">
         <span className="font-mono text-[0.55rem] tracking-[0.3em] text-bone/60 uppercase">
           Scroll
         </span>
