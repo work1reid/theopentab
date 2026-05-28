@@ -1,4 +1,3 @@
-import OnAirIndicator from "@/components/OnAirIndicator";
 import VideoHero from "@/components/VideoHero";
 import StatementIntro from "@/components/StatementIntro";
 import EpisodeTiles from "@/components/EpisodeTiles";
@@ -26,75 +25,42 @@ export default function Home() {
             </div>
           </div>
 
-          <article className="relative border border-edge overflow-hidden">
-            <div className="grid grid-cols-1 lg:grid-cols-12">
-              <div className="lg:col-span-4 relative bg-gradient-to-br from-ink via-ink to-[#181818] aspect-[4/3] lg:aspect-auto lg:min-h-[24rem] scanlines border-b lg:border-b-0 lg:border-r border-edge">
-                <div className="absolute inset-0 flex flex-col justify-between p-6 md:p-8">
-                  <div className="flex items-center justify-between font-mono text-[0.72rem] tracking-[0.22em] text-ghost uppercase">
-                    <span>● Recording</span>
-                    <span>{formatDate(latest.date)}</span>
-                  </div>
-                  <div className="flex items-end justify-between">
-                    <OnAirIndicator variant="hero" />
-                    <div className="font-display text-[7rem] md:text-[8rem] leading-[0.8] text-signal/20 tracking-tighter select-none -mb-4 md:-mb-6 -mr-2">
-                      {latest.number}
-                    </div>
-                  </div>
-                </div>
+          <article className="relative border border-edge p-8 md:p-12 lg:p-16 overflow-hidden">
+            {/* Big episode number watermark */}
+            <div className="watermark absolute -top-10 -right-4 text-[16rem] md:text-[22rem] leading-none select-none">
+              {latest.number}
+            </div>
+
+            <div className="relative z-10 max-w-3xl">
+              <div className="flex items-center gap-5 font-mono text-[0.74rem] tracking-[0.22em] text-ghost uppercase">
+                <span>Episode {latest.number}</span>
+                <span>·</span>
+                <span>{latest.duration}</span>
+                <span className="hidden sm:inline">·</span>
+                <span className="hidden sm:inline">{formatDate(latest.date)}</span>
               </div>
 
-              <div className="lg:col-span-8 p-7 md:p-10 lg:p-12 flex flex-col justify-between">
-                <div>
-                  <div className="flex items-center gap-6 font-mono text-[0.74rem] tracking-[0.22em] text-ghost uppercase">
-                    <span>Ep · {latest.number}</span>
-                    <span>{latest.duration}</span>
-                    <span className="hidden sm:inline">{latest.city}</span>
-                  </div>
+              <h3 className="mt-8 font-display text-5xl md:text-7xl leading-[0.92] tracking-snug">
+                {latest.guest}
+              </h3>
 
-                  <div className="mt-7 font-mono text-[0.74rem] tracking-[0.22em] text-ghost uppercase mb-3">
-                    Guest
-                  </div>
-                  <h3 className="font-display text-3xl md:text-4xl leading-[0.95] tracking-snug">
-                    {latest.guest}
-                  </h3>
+              <p className="mt-6 font-display text-xl md:text-2xl leading-snug text-bone/80 tracking-snug">
+                {latest.title}
+              </p>
 
-                  <p className="mt-6 font-display text-lg md:text-xl leading-snug text-bone/85 tracking-snug max-w-2xl">
-                    {latest.title}
-                  </p>
-
-                  <p className="mt-5 font-mono text-sm text-ghost leading-relaxed max-w-2xl">
-                    {latest.description}
-                  </p>
-
-                  {latest.highlights.length > 0 && (
-                    <ul className="mt-7 space-y-2">
-                      {latest.highlights.map((h, i) => (
-                        <li
-                          key={i}
-                          className="flex items-start gap-3 font-mono text-sm text-bone/70"
-                        >
-                          <span className="text-signal mt-1.5">▸</span>
-                          <span>{h}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </div>
-
-                <div className="mt-10 pt-8 border-t border-edge flex flex-wrap items-center gap-3">
-                  <a className="btn-platform" href={latest.spotify}>
-                    <span className="dot-corner" />
-                    Spotify
-                  </a>
-                  <a className="btn-platform" href={latest.apple}>
-                    <span className="dot-corner" />
-                    Apple
-                  </a>
-                  <a className="btn-platform" href={latest.youtube}>
-                    <span className="dot-corner" />
-                    YouTube
-                  </a>
-                </div>
+              <div className="mt-10 flex flex-wrap items-center gap-3">
+                <a className="btn-platform" href={latest.spotify}>
+                  <span className="dot-corner" />
+                  Spotify
+                </a>
+                <a className="btn-platform" href={latest.apple}>
+                  <span className="dot-corner" />
+                  Apple
+                </a>
+                <a className="btn-platform" href={latest.youtube}>
+                  <span className="dot-corner" />
+                  YouTube
+                </a>
               </div>
             </div>
           </article>

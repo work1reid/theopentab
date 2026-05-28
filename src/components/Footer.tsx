@@ -19,7 +19,7 @@ export default function Footer() {
               Unearthing the<br />
               <span className="italic text-signal">uncommon.</span>
             </p>
-            <p className="mt-6 font-mono text-sm text-ghost max-w-sm leading-relaxed">
+            <p className="mt-6 font-mono text-base text-bone/70 max-w-sm leading-relaxed">
               Long conversations with people worth listening to.
               Hosted by Max Reid. Recorded in Forbes, NSW.
             </p>

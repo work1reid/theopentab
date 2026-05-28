@@ -23,46 +23,42 @@ export default function EpisodeTiles({ episodes }: { episodes: Episode[] }) {
         </div>
       </div>
 
-      {/* Edge-to-edge tile grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+      {/* Tile grid — short, clear, one row */}
+      <div className="grid grid-cols-1 md:grid-cols-3 border-t border-edge">
         {episodes.map((ep, i) => {
           const upcoming = ep.guest === "TBA";
           return (
             <Link
               key={ep.slug}
               href={upcoming ? "/episodes" : `/episodes#${ep.slug}`}
-              className="group relative aspect-[4/5] sm:aspect-square overflow-hidden border-t border-edge sm:[&:nth-child(-n+2)]:border-t-0 lg:[&:nth-child(-n+3)]:border-t-0 sm:[&:nth-child(odd)]:border-l-0 sm:border-l lg:border-l lg:[&:nth-child(3n+1)]:border-l-0"
+              className="group relative min-h-[280px] flex flex-col justify-between p-7 md:p-8 border-b border-edge md:border-b-0 md:border-r md:last:border-r-0 hover:bg-whisper transition-colors overflow-hidden"
             >
-              {/* Background */}
-              <div className="absolute inset-0 bg-gradient-to-br from-[#141414] via-ink to-[#1c1c1c] scanlines" />
-              <div className="absolute inset-0 bg-ink/20 group-hover:bg-ink/0 transition-colors duration-500" />
-
-              {/* Giant number watermark */}
-              <div className="watermark absolute -bottom-10 -right-4 text-[14rem] leading-none group-hover:text-signal/15 transition-colors duration-500">
+              {/* Number watermark */}
+              <span className="watermark absolute -bottom-8 -right-2 text-[10rem] leading-none group-hover:text-signal/15 transition-colors duration-500">
                 {ep.number}
-              </div>
+              </span>
 
-              {/* Top meta */}
-              <div className="absolute top-0 inset-x-0 p-6 flex items-center justify-between font-mono text-[0.72rem] tracking-[0.22em] uppercase text-bone/60">
-                <span>EP · {ep.number}</span>
+              {/* Top: ep + date */}
+              <div className="relative z-10 flex items-center justify-between font-mono text-[0.72rem] tracking-[0.22em] uppercase text-ghost">
+                <span>Episode {ep.number}</span>
                 <span>{formatDate(ep.date)}</span>
               </div>
 
-              {/* Bottom label */}
-              <div className="absolute bottom-0 inset-x-0 p-6">
+              {/* Bottom: guest + action */}
+              <div className="relative z-10">
                 <div className="font-mono text-[0.72rem] tracking-[0.22em] text-ghost uppercase mb-2">
                   {upcoming ? "Coming soon" : "Guest"}
                 </div>
-                <div className="font-display text-2xl md:text-3xl leading-[0.95] tracking-snug mb-3">
+                <div className="font-display text-3xl md:text-4xl leading-[0.95] tracking-snug mb-5">
                   {upcoming ? (
-                    <span className="italic text-ghost">{ep.guest}</span>
+                    <span className="italic text-ghost">To be announced</span>
                   ) : (
                     ep.guest
                   )}
                 </div>
                 <div className="flex items-center gap-2 font-mono text-[0.74rem] tracking-[0.22em] uppercase text-bone group-hover:text-signal transition-colors">
                   <span className="w-6 h-px bg-current transition-all group-hover:w-10" />
-                  {upcoming ? "Notify" : "Listen"}
+                  {upcoming ? "Notify me" : "Listen"}
                   <span className="text-signal opacity-0 group-hover:opacity-100 transition-opacity">
                     →
                   </span>
