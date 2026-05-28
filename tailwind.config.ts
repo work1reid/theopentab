@@ -7,8 +7,8 @@ const config: Config = {
       colors: {
         ink: "#0d0d0d",
         bone: "#f0f0f0",
-        signal: "#ff4d4d",
-        ghost: "rgba(255,255,255,0.3)",
+        signal: "#6cb6ff",
+        ghost: "rgba(255,255,255,0.5)",
         whisper: "rgba(255,255,255,0.06)",
         edge: "rgba(255,255,255,0.12)",
       },

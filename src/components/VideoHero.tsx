@@ -20,12 +20,12 @@ export default function VideoHero() {
       {/* Bottom-anchored wordmark + status line */}
       <div className="absolute inset-x-0 bottom-0 z-10">
         <div className="mx-auto max-w-[1600px] px-6 md:px-10 pb-12 md:pb-14">
-          <div className="flex items-center gap-4 font-mono text-[0.6rem] tracking-[0.22em] text-bone/70 uppercase mb-3">
+          <div className="flex items-center gap-4 font-mono text-[0.6rem] tracking-[0.22em] text-bone/85 uppercase mb-3">
             <span className="tick">A podcast hosted by Max Reid</span>
-            <span className="hidden md:inline text-bone/40">·</span>
-            <span className="hidden md:inline text-bone/40">Forbes, NSW</span>
-            <span className="hidden lg:inline text-bone/40">·</span>
-            <span className="hidden lg:inline text-bone/40">FRQ 89.7</span>
+            <span className="hidden md:inline text-bone/55">·</span>
+            <span className="hidden md:inline text-bone/70">Forbes, NSW</span>
+            <span className="hidden lg:inline text-bone/55">·</span>
+            <span className="hidden lg:inline text-bone/70">FRQ 89.7</span>
           </div>
           <h1 className="font-display font-black tracking-tightest leading-[0.82] text-bone drop-shadow-[0_2px_30px_rgba(0,0,0,0.6)]">
             <span className="block text-[clamp(2.75rem,7.5vw,7rem)]">The Open</span>

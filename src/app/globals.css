@@ -7,8 +7,8 @@
 :root {
   --ink: #0d0d0d;
   --bone: #f0f0f0;
-  --signal: #ff4d4d;
-  --ghost: rgba(255, 255, 255, 0.3);
+  --signal: #6cb6ff;
+  --ghost: rgba(255, 255, 255, 0.5);
   --edge: rgba(255, 255, 255, 0.12);
   --whisper: rgba(255, 255, 255, 0.06);
 }
@@ -189,7 +189,7 @@ body {
   font-family: "Playfair Display", serif;
   font-style: italic;
   font-weight: 400;
-  color: rgba(255, 77, 77, 0.08);
+  color: rgba(108, 182, 255, 0.1);
   user-select: none;
   pointer-events: none;
 }
