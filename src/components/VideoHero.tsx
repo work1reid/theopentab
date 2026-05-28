@@ -1,6 +1,6 @@
 export default function VideoHero() {
   return (
-    <section className="relative h-[86svh] min-h-[520px] w-full overflow-hidden scanlines">
+    <section className="relative h-[calc(100svh-4rem)] min-h-[520px] w-full overflow-hidden scanlines">
       {/* Video layer — the episode intro montage */}
       <video
         className="absolute inset-0 h-full w-full object-cover"
@@ -28,8 +28,8 @@ export default function VideoHero() {
             <span className="hidden lg:inline text-bone/40">FRQ 89.7</span>
           </div>
           <h1 className="font-display font-black tracking-tightest leading-[0.82] text-bone drop-shadow-[0_2px_30px_rgba(0,0,0,0.6)]">
-            <span className="block text-[clamp(2.25rem,6.5vw,6rem)]">The Open</span>
-            <span className="block text-[clamp(2.25rem,6.5vw,6rem)] italic text-signal font-normal">
+            <span className="block text-[clamp(2.75rem,7.5vw,7rem)]">The Open</span>
+            <span className="block text-[clamp(2.75rem,7.5vw,7rem)] italic text-signal font-normal">
               Tab.
             </span>
           </h1>
