@@ -31,10 +31,13 @@ export default function AboutPage() {
           {/* Portrait + stats */}
           <div className="md:col-span-4">
             <div className="aspect-[3/4] bg-whisper border border-edge relative overflow-hidden scanlines">
-              <div className="absolute inset-0 flex items-center justify-center font-mono text-[0.74rem] tracking-[0.22em] text-ghost uppercase">
-                Portrait pending
-              </div>
-              <div className="absolute top-4 left-4 font-mono text-[0.72rem] tracking-[0.22em] text-ghost uppercase">
+              <img
+                src="/about-max.jpg"
+                alt="Max Reid on the beach in Forbes, NSW"
+                className="absolute inset-0 h-full w-full object-cover grayscale contrast-[1.05]"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-ink/50 via-transparent to-ink/10" />
+              <div className="absolute top-4 left-4 font-mono text-[0.72rem] tracking-[0.22em] text-bone/80 uppercase">
                 ● Max Reid
               </div>
             </div>

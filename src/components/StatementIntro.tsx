@@ -32,13 +32,16 @@ export default function StatementIntro() {
         {/* Portrait */}
         <div className="lg:col-span-5">
           <div className="relative aspect-[4/5] bg-whisper border border-edge overflow-hidden scanlines">
-            <div className="absolute inset-0 flex items-center justify-center font-mono text-[0.74rem] tracking-[0.22em] text-ghost uppercase">
-              Portrait pending
-            </div>
-            <div className="absolute top-5 left-5 font-mono text-[0.72rem] tracking-[0.22em] text-bone/60 uppercase">
+            <img
+              src="/portrait-max.jpg"
+              alt="Max Reid on the beach in Forbes, NSW"
+              className="absolute inset-0 h-full w-full object-cover grayscale contrast-[1.05]"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-ink/50 via-transparent to-ink/20" />
+            <div className="absolute top-5 left-5 font-mono text-[0.72rem] tracking-[0.22em] text-bone/80 uppercase">
               ● Max Reid
             </div>
-            <div className="absolute bottom-5 right-5 font-mono text-[0.72rem] tracking-[0.22em] text-bone/60 uppercase">
+            <div className="absolute bottom-5 right-5 font-mono text-[0.72rem] tracking-[0.22em] text-bone/80 uppercase">
               Host
             </div>
           </div>
