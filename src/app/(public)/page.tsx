@@ -58,9 +58,14 @@ export default function Home() {
                   <span className="dot-corner" />
                   Spotify
                 </a>
-                <a className="btn-platform opacity-50 cursor-default" aria-disabled>
+                <a
+                  className="btn-platform"
+                  href={latest.apple}
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <span className="dot-corner" />
-                  Apple <span className="text-[0.66rem] ml-1">soon</span>
+                  Apple
                 </a>
                 <a
                   className="btn-platform"

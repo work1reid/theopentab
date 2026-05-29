@@ -66,8 +66,13 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a className="text-ghost cursor-default" href="#" aria-disabled>
-                  Apple Podcasts <span className="text-[0.66rem]">(soon)</span>
+                <a
+                  className="text-bone hover:text-signal transition-colors"
+                  href="https://podcasts.apple.com/us/podcast/the-open-tab/id1896832387"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Apple Podcasts
                 </a>
               </li>
               <li>
