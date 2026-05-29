@@ -62,9 +62,14 @@ export default function Home() {
                   <span className="dot-corner" />
                   Apple <span className="text-[0.66rem] ml-1">soon</span>
                 </a>
-                <a className="btn-platform opacity-50 cursor-default" aria-disabled>
+                <a
+                  className="btn-platform"
+                  href={latest.youtube}
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <span className="dot-corner" />
-                  YouTube <span className="text-[0.66rem] ml-1">soon</span>
+                  YouTube
                 </a>
               </div>
             </div>

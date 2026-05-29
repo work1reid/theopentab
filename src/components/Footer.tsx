@@ -71,8 +71,13 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a className="text-ghost cursor-default" href="#" aria-disabled>
-                  YouTube <span className="text-[0.66rem]">(soon)</span>
+                <a
+                  className="text-bone hover:text-signal transition-colors"
+                  href="https://www.youtube.com/@the_opentab"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  YouTube
                 </a>
               </li>
             </ul>
