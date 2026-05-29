@@ -2,8 +2,8 @@ import EpisodeCard from "@/components/EpisodeCard";
 import { episodes, formatDate } from "@/lib/episodes";
 
 export default function EpisodesPage() {
-  const live = episodes.filter((e) => e.guest !== "TBA");
-  const upcoming = episodes.filter((e) => e.guest === "TBA");
+  const live = episodes.filter((e) => e.released);
+  const upcoming = episodes.filter((e) => !e.released);
 
   return (
     <>
@@ -53,7 +53,7 @@ export default function EpisodesPage() {
                       {formatDate(ep.date)}
                     </div>
                     <div className="font-display text-2xl md:text-3xl tracking-snug text-ghost">
-                      Guest to be announced
+                      {ep.guest === "TBA" ? "Guest to be announced" : ep.guest}
                     </div>
                   </div>
                 </div>

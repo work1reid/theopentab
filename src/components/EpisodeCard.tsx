@@ -7,7 +7,7 @@ type Props = {
 };
 
 export default function EpisodeCard({ episode, variant = "grid" }: Props) {
-  const upcoming = episode.guest === "TBA";
+  const upcoming = !episode.released;
 
   if (variant === "list") {
     return (

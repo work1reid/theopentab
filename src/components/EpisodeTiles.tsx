@@ -25,18 +25,34 @@ export default function EpisodeTiles({ episodes }: { episodes: Episode[] }) {
 
       {/* Tile grid — short, clear, one row */}
       <div className="grid grid-cols-1 md:grid-cols-3 border-t border-edge">
-        {episodes.map((ep, i) => {
-          const upcoming = ep.guest === "TBA";
+        {episodes.map((ep) => {
+          const upcoming = !ep.released;
+          const tba = ep.guest === "TBA";
           return (
             <Link
               key={ep.slug}
               href={upcoming ? "/episodes" : `/episodes#${ep.slug}`}
               className="group relative min-h-[280px] flex flex-col justify-between p-7 md:p-8 border-b border-edge md:border-b-0 md:border-r md:last:border-r-0 hover:bg-whisper transition-colors overflow-hidden"
             >
-              {/* Number watermark */}
-              <span className="watermark absolute -bottom-8 -right-2 text-[10rem] leading-none group-hover:text-signal/15 transition-colors duration-500">
-                {ep.number}
-              </span>
+              {/* Blurred image background (mystery guest) */}
+              {ep.image && (
+                <>
+                  <img
+                    src={ep.image}
+                    alt=""
+                    aria-hidden
+                    className="absolute inset-0 h-full w-full object-cover opacity-50 group-hover:opacity-65 transition-opacity duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/60 to-ink/30" />
+                </>
+              )}
+
+              {/* Number watermark (only when no image) */}
+              {!ep.image && (
+                <span className="watermark absolute -bottom-8 -right-2 text-[10rem] leading-none group-hover:text-signal/15 transition-colors duration-500">
+                  {ep.number}
+                </span>
+              )}
 
               {/* Top: ep + date */}
               <div className="relative z-10 flex items-center justify-between font-mono text-[0.72rem] tracking-[0.22em] uppercase text-ghost">
@@ -50,7 +66,7 @@ export default function EpisodeTiles({ episodes }: { episodes: Episode[] }) {
                   {upcoming ? "Coming soon" : "Guest"}
                 </div>
                 <div className="font-display text-3xl md:text-4xl leading-[0.95] tracking-snug mb-5">
-                  {upcoming ? (
+                  {tba ? (
                     <span className="italic text-ghost">To be announced</span>
                   ) : (
                     ep.guest

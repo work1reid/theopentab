@@ -10,6 +10,8 @@ export type Episode = {
   date: string;
   duration: string;
   city: string;
+  released: boolean;
+  image: string;
   spotify: string;
   apple: string;
   youtube: string;
@@ -18,7 +20,7 @@ export type Episode = {
 
 export const episodes: Episode[] = data as Episode[];
 
-export const latest = episodes[0];
+export const latest = episodes.find((e) => e.released) ?? episodes[0];
 
 export function formatDate(iso: string): string {
   if (!iso) return "—";
