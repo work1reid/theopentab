@@ -49,17 +49,22 @@ export default function Home() {
               </p>
 
               <div className="mt-10 flex flex-wrap items-center gap-3">
-                <a className="btn-platform" href={latest.spotify}>
+                <a
+                  className="btn-platform"
+                  href={latest.spotify}
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <span className="dot-corner" />
                   Spotify
                 </a>
-                <a className="btn-platform" href={latest.apple}>
+                <a className="btn-platform opacity-50 cursor-default" aria-disabled>
                   <span className="dot-corner" />
-                  Apple
+                  Apple <span className="text-[0.66rem] ml-1">soon</span>
                 </a>
-                <a className="btn-platform" href={latest.youtube}>
+                <a className="btn-platform opacity-50 cursor-default" aria-disabled>
                   <span className="dot-corner" />
-                  YouTube
+                  YouTube <span className="text-[0.66rem] ml-1">soon</span>
                 </a>
               </div>
             </div>

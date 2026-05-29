@@ -56,18 +56,23 @@ export default function Footer() {
             </div>
             <ul className="space-y-2 font-mono text-sm">
               <li>
-                <a className="text-bone hover:text-signal transition-colors" href="#">
+                <a
+                  className="text-bone hover:text-signal transition-colors"
+                  href="https://open.spotify.com/show/033nHRXHfv7gCGhAjSMCog"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   Spotify
                 </a>
               </li>
               <li>
-                <a className="text-bone hover:text-signal transition-colors" href="#">
-                  Apple Podcasts
+                <a className="text-ghost cursor-default" href="#" aria-disabled>
+                  Apple Podcasts <span className="text-[0.66rem]">(soon)</span>
                 </a>
               </li>
               <li>
-                <a className="text-bone hover:text-signal transition-colors" href="#">
-                  YouTube
+                <a className="text-ghost cursor-default" href="#" aria-disabled>
+                  YouTube <span className="text-[0.66rem]">(soon)</span>
                 </a>
               </li>
             </ul>
