@@ -1,11 +1,23 @@
 export default function VideoHero() {
   return (
-    <section className="relative h-[calc(100svh-4rem)] min-h-[520px] w-full overflow-hidden scanlines">
+    <section className="relative h-[calc(85svh-4rem)] min-h-[480px] w-full overflow-hidden scanlines">
       {/* Video layer — the episode intro montage */}
+      {/* Desktop / wide: landscape montage */}
       <video
-        className="absolute inset-0 h-full w-full object-cover"
+        className="absolute inset-0 hidden h-full w-full object-cover object-[center_65%] md:block"
         src="/hero/intro.mp4"
         poster="/hero/intro-poster.jpg"
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
+      />
+      {/* Mobile: portrait montage so both subjects stay visible */}
+      <video
+        className="absolute inset-0 block h-full w-full object-cover md:hidden"
+        src="/hero/intro-mobile.mp4"
+        poster="/hero/intro-mobile-poster.jpg"
         autoPlay
         muted
         loop
