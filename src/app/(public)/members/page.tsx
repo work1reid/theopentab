@@ -7,6 +7,28 @@ import SignOutButton from "./SignOutButton";
 export const dynamic = "force-dynamic";
 
 export default async function MembersPage() {
+  // If Supabase isn't configured on this deploy, show a graceful state
+  // instead of crashing the page.
+  if (
+    !process.env.NEXT_PUBLIC_SUPABASE_URL ||
+    !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+  ) {
+    return (
+      <Shell status="Members · Coming soon">
+        <h1 className="font-display font-black tracking-tightest leading-[0.86] text-display-sm">
+          <span className="block">The other</span>
+          <span className="block italic text-signal font-normal">
+            conversation.
+          </span>
+        </h1>
+        <p className="mt-8 font-display text-xl md:text-2xl leading-snug text-bone/85 tracking-snug max-w-2xl">
+          A second tape — longer, heavier, unreleased. Member access is opening
+          soon.
+        </p>
+      </Shell>
+    );
+  }
+
   const supabase = await createClient();
   const {
     data: { user },
