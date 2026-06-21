@@ -42,18 +42,23 @@
     "number": "03",
     "slug": "cayden-ryan",
     "guest": "Cayden Ryan",
-    "title": "Sex, Love & Money",
-    "tagline": "A 20-year-old on hard work, real money, and what it actually costs to get there.",
-    "description": "Episode 03. A conversation with Cayden Ryan — making serious money young, the work behind it, and the honest talk about sex, love and money no one his age is having. Coming soon.",
-    "date": "",
-    "duration": "—",
+    "title": "The 23-Year-Old Who Sees Through Everything",
+    "tagline": "Money, lust, jealousy, and what it actually costs to get there.",
+    "description": "Episode 03. Four hours with Cayden Ryan — 23, working the mines, and completely unfiltered. Real money and the work behind it, killing lust, jealousy in a small town, faith, discipline, and the honest conversations no one his age is having.",
+    "date": "2026-06-22",
+    "duration": "2h 36m",
     "city": "Forbes, NSW",
-    "released": false,
+    "released": true,
     "image": "/cayden-ryan.jpg",
     "spotify": "#",
     "apple": "#",
-    "youtube": "#",
-    "highlights": []
+    "youtube": "https://www.youtube.com/watch?v=QQfcvJVfj7A",
+    "highlights": [
+      "From Maccas to a BMW M5 at 23",
+      "A million seconds vs a billion seconds",
+      "Killing lust before it kills you",
+      "Are you actually happy — or just too busy to notice?"
+    ]
   },
   {
     "number": "04",

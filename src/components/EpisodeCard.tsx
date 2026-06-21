@@ -46,11 +46,20 @@ export default function EpisodeCard({ episode, variant = "grid" }: Props) {
             </div>
             {!upcoming && (
               <div className="flex items-center gap-2 font-mono text-[0.74rem] tracking-[0.22em] uppercase text-bone pointer-events-auto relative z-10">
-                <a href={episode.spotify} target="_blank" rel="noopener noreferrer" className="hover:text-signal">SPF</a>
-                <span className="text-ghost">·</span>
-                <a href={episode.apple} target="_blank" rel="noopener noreferrer" className="hover:text-signal">APL</a>
-                <span className="text-ghost">·</span>
-                <a href={episode.youtube} target="_blank" rel="noopener noreferrer" className="hover:text-signal">YT</a>
+                {[
+                  { href: episode.spotify, code: "SPF" },
+                  { href: episode.apple, code: "APL" },
+                  { href: episode.youtube, code: "YT" },
+                ]
+                  .filter((p) => p.href && p.href !== "#")
+                  .map((p, i, arr) => (
+                    <span key={p.code} className="flex items-center gap-2">
+                      <a href={p.href} target="_blank" rel="noopener noreferrer" className="hover:text-signal">
+                        {p.code}
+                      </a>
+                      {i < arr.length - 1 && <span className="text-ghost">·</span>}
+                    </span>
+                  ))}
               </div>
             )}
           </div>
