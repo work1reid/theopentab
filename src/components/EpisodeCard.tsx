@@ -11,11 +11,14 @@ export default function EpisodeCard({ episode, variant = "grid" }: Props) {
 
   if (variant === "list") {
     return (
-      <Link
-        href={upcoming ? "/episodes" : `/episodes#${episode.slug}`}
-        className="ep-card group block border-t border-edge py-8 md:py-10 hover:bg-whisper transition-colors"
-      >
-        <div className="grid grid-cols-12 gap-6 items-baseline">
+      <div className="ep-card group relative border-t border-edge py-8 md:py-10 hover:bg-whisper transition-colors">
+        {/* Stretched link covers the whole row without nesting other anchors */}
+        <Link
+          href={upcoming ? "/episodes" : `/episodes#${episode.slug}`}
+          aria-label={`${episode.guest} — ${episode.title}`}
+          className="absolute inset-0 z-0"
+        />
+        <div className="grid grid-cols-12 gap-6 items-baseline pointer-events-none">
           <div className="col-span-3 md:col-span-2">
             <div className="ep-num font-display text-5xl md:text-6xl leading-none transition-colors">
               {episode.number}
@@ -41,16 +44,18 @@ export default function EpisodeCard({ episode, variant = "grid" }: Props) {
             <div className="font-mono text-[0.74rem] tracking-[0.22em] text-ghost uppercase">
               {episode.duration}
             </div>
-            <div className="flex items-center gap-2 font-mono text-[0.74rem] tracking-[0.22em] uppercase text-bone">
-              <a href={episode.spotify} className="hover:text-signal">SPF</a>
-              <span className="text-ghost">·</span>
-              <a href={episode.apple} className="hover:text-signal">APL</a>
-              <span className="text-ghost">·</span>
-              <a href={episode.youtube} className="hover:text-signal">YT</a>
-            </div>
+            {!upcoming && (
+              <div className="flex items-center gap-2 font-mono text-[0.74rem] tracking-[0.22em] uppercase text-bone pointer-events-auto relative z-10">
+                <a href={episode.spotify} target="_blank" rel="noopener noreferrer" className="hover:text-signal">SPF</a>
+                <span className="text-ghost">·</span>
+                <a href={episode.apple} target="_blank" rel="noopener noreferrer" className="hover:text-signal">APL</a>
+                <span className="text-ghost">·</span>
+                <a href={episode.youtube} target="_blank" rel="noopener noreferrer" className="hover:text-signal">YT</a>
+              </div>
+            )}
           </div>
         </div>
-      </Link>
+      </div>
     );
   }
 

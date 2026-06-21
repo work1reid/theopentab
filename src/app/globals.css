@@ -8,7 +8,7 @@
   --ink: #0d0d0d;
   --bone: #f0f0f0;
   --signal: #6cb6ff;
-  --ghost: rgba(255, 255, 255, 0.5);
+  --ghost: rgba(255, 255, 255, 0.62);
   --edge: rgba(255, 255, 255, 0.12);
   --whisper: rgba(255, 255, 255, 0.06);
 }
@@ -29,6 +29,24 @@ body {
 ::selection {
   background: var(--signal);
   color: var(--ink);
+}
+
+/* Visible keyboard focus on dark background */
+:focus-visible {
+  outline: 2px solid var(--signal);
+  outline-offset: 2px;
+}
+
+/* Respect reduced-motion: kill flicker/scan/marquee/grain/reveal/bounce */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 .font-display {

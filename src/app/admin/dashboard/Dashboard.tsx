@@ -13,6 +13,8 @@ type Episode = {
   date: string;
   duration: string;
   city: string;
+  released: boolean;
+  image: string;
   spotify: string;
   apple: string;
   youtube: string;
@@ -29,6 +31,8 @@ const blank: Episode = {
   date: new Date().toISOString().slice(0, 10),
   duration: "",
   city: "Forbes, NSW",
+  released: false,
+  image: "",
   spotify: "",
   apple: "",
   youtube: "",
@@ -184,12 +188,20 @@ export default function Dashboard() {
               The Open Tab <span className="text-ghost italic">admin</span>
             </div>
           </div>
-          <button
-            onClick={logout}
-            className="font-mono text-[0.62rem] tracking-[0.22em] uppercase text-ghost hover:text-signal transition-colors"
-          >
-            Sign out →
-          </button>
+          <div className="flex items-center gap-6">
+            <a
+              href="/admin/vault"
+              className="font-mono text-[0.62rem] tracking-[0.22em] uppercase text-signal hover:text-bone transition-colors"
+            >
+              Members vault →
+            </a>
+            <button
+              onClick={logout}
+              className="font-mono text-[0.62rem] tracking-[0.22em] uppercase text-ghost hover:text-signal transition-colors"
+            >
+              Sign out →
+            </button>
+          </div>
         </div>
       </div>
 
@@ -453,6 +465,30 @@ function EpisodeEditor({
             className={`${inputCls} min-h-[7rem] resize-y`}
             rows={4}
           />
+        </Field>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-5">
+        <Field label="Image path" hint="e.g. /ep3-cayden.jpg (file in /public)">
+          <input
+            value={draft.image}
+            onChange={(e) => update("image", e.target.value)}
+            className={inputCls}
+            placeholder="/ep3-cayden.jpg"
+          />
+        </Field>
+        <Field label="Status" hint="Released = live · off = coming soon">
+          <button
+            type="button"
+            onClick={() => update("released", !draft.released)}
+            className={`w-full text-left border px-3 py-2.5 font-mono text-sm transition-colors ${
+              draft.released
+                ? "border-signal text-signal"
+                : "border-edge text-ghost hover:border-bone"
+            }`}
+          >
+            {draft.released ? "● Released — live on site" : "○ Coming soon — hidden"}
+          </button>
         </Field>
       </div>
 

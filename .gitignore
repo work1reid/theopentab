@@ -11,3 +11,11 @@ out
 .vscode
 next-env.d.ts
 DSC05729.JPG
+
+# build artifacts & local working files
+tsconfig.tsbuildinfo
+_hero-montage/
+# stray images/fonts dropped in the repo root (app assets live in /public)
+/*.png
+/*.JPG
+/*.ttf
