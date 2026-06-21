@@ -20,7 +20,11 @@ export type Episode = {
 
 export const episodes: Episode[] = data as Episode[];
 
-export const latest = episodes.find((e) => e.released) ?? episodes[0];
+// Newest released episode (highest number), not just the first in the list.
+export const latest =
+  [...episodes]
+    .filter((e) => e.released)
+    .sort((a, b) => Number(b.number) - Number(a.number))[0] ?? episodes[0];
 
 export function getEpisode(slug: string): Episode | undefined {
   return episodes.find((e) => e.slug === slug);

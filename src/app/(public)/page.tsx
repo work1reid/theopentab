@@ -49,33 +49,24 @@ export default function Home() {
               </p>
 
               <div className="mt-10 flex flex-wrap items-center gap-3">
-                <a
-                  className="btn-platform"
-                  href={latest.spotify}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <span className="dot-corner" />
-                  Spotify
-                </a>
-                <a
-                  className="btn-platform"
-                  href={latest.apple}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <span className="dot-corner" />
-                  Apple
-                </a>
-                <a
-                  className="btn-platform"
-                  href={latest.youtube}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <span className="dot-corner" />
-                  YouTube
-                </a>
+                {[
+                  { label: "Spotify", href: latest.spotify },
+                  { label: "Apple", href: latest.apple },
+                  { label: "YouTube", href: latest.youtube },
+                ]
+                  .filter((p) => p.href && p.href !== "#")
+                  .map((p) => (
+                    <a
+                      key={p.label}
+                      className="btn-platform"
+                      href={p.href}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <span className="dot-corner" />
+                      {p.label}
+                    </a>
+                  ))}
               </div>
             </div>
           </article>
