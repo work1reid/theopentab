@@ -15,9 +15,9 @@ export default async function MembersPage() {
   ) {
     return (
       <Shell status="Members · Coming soon">
-        <h1 className="font-display font-black tracking-tightest leading-[0.86] text-display-sm">
-          <span className="block">The other</span>
-          <span className="block italic text-signal font-normal">
+        <h1 className="font-condensed text-5xl md:text-7xl lg:text-8xl leading-[0.9] text-bone">
+          The other{" "}
+          <span className="font-display italic lowercase tracking-normal normal-case text-signal">
             conversation.
           </span>
         </h1>
@@ -38,9 +38,9 @@ export default async function MembersPage() {
   if (!user) {
     return (
       <Shell status="Locked · Members only">
-        <h1 className="font-display font-black tracking-tightest leading-[0.86] text-display-sm">
-          <span className="block">The other</span>
-          <span className="block italic text-signal font-normal">
+        <h1 className="font-condensed text-5xl md:text-7xl lg:text-8xl leading-[0.9] text-bone">
+          The other{" "}
+          <span className="font-display italic lowercase tracking-normal normal-case text-signal">
             conversation.
           </span>
         </h1>
@@ -72,9 +72,9 @@ export default async function MembersPage() {
           </span>
           <SignOutButton />
         </div>
-        <h1 className="mt-8 font-display font-black tracking-tightest leading-[0.86] text-display-sm">
-          <span className="block">One step</span>
-          <span className="block italic text-signal font-normal">away.</span>
+        <h1 className="mt-8 font-condensed text-5xl md:text-7xl lg:text-8xl leading-[0.9] text-bone">
+          One step{" "}
+          <span className="font-display italic lowercase tracking-normal normal-case text-signal">away.</span>
         </h1>
         <p className="mt-8 font-display text-xl md:text-2xl leading-snug text-bone/85 tracking-snug max-w-2xl">
           Become a member for <span className="text-signal">$5/month</span> to
@@ -125,8 +125,8 @@ export default async function MembersPage() {
         </span>
         <SignOutButton />
       </div>
-      <h1 className="mt-8 font-display font-black tracking-tightest leading-[0.86] text-display-sm">
-        The <span className="italic text-signal font-normal">vault.</span>
+      <h1 className="mt-8 font-condensed text-5xl md:text-7xl lg:text-8xl leading-[0.9] text-bone">
+        The <span className="font-display italic lowercase tracking-normal normal-case text-signal">vault.</span>
       </h1>
 
       {!posts || posts.length === 0 ? (

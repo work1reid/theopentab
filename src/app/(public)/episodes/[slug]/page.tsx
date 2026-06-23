@@ -74,11 +74,11 @@ export default async function EpisodePage({
       <div className="mt-6 font-mono text-[0.74rem] tracking-[0.22em] text-ghost uppercase">
         Guest
       </div>
-      <h1 className="mt-2 font-display font-black text-5xl md:text-7xl leading-[0.9] tracking-tightest">
+      <h1 className="mt-2 font-display text-5xl md:text-7xl leading-[0.95] tracking-snug text-signal">
         {ep.guest}
       </h1>
-      <p className="mt-6 font-display text-2xl md:text-3xl leading-snug tracking-snug text-bone/85 max-w-3xl">
-        {ep.title}
+      <p className="mt-6 font-display italic text-2xl md:text-3xl leading-snug tracking-snug text-bone/70 max-w-3xl">
+        &ldquo;{ep.title}&rdquo;
       </p>
 
       {ep.released ? (

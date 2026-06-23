@@ -24,7 +24,13 @@ function PlayIcon() {
   );
 }
 
-export default function EpisodeList({ episodes }: { episodes: Episode[] }) {
+export default function EpisodeList({
+  episodes,
+  showHeading = true,
+}: {
+  episodes: Episode[];
+  showHeading?: boolean;
+}) {
   const released = episodes
     .filter((e) => e.released)
     .sort((a, b) => Number(b.number) - Number(a.number));
@@ -35,12 +41,16 @@ export default function EpisodeList({ episodes }: { episodes: Episode[] }) {
   return (
     <section className="border-t border-edge">
       <div className="mx-auto max-w-[1600px] px-6 md:px-10 py-16 md:py-24">
-        <div className="tick font-mono text-[0.74rem] tracking-[0.22em] text-ghost uppercase mb-4">
-          The catalogue
-        </div>
-        <h2 className="font-condensed text-5xl md:text-7xl lg:text-8xl text-bone mb-10 md:mb-14">
-          Episodes
-        </h2>
+        {showHeading && (
+          <>
+            <div className="tick font-mono text-[0.74rem] tracking-[0.22em] text-ghost uppercase mb-4">
+              The catalogue
+            </div>
+            <h2 className="font-condensed text-5xl md:text-7xl lg:text-8xl text-bone mb-10 md:mb-14">
+              Episodes
+            </h2>
+          </>
+        )}
 
         <div className="flex flex-col">
           {released.map((ep, i) => (
