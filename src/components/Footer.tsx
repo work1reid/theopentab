@@ -75,7 +75,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-16 flex flex-col gap-3 border-t border-edge pt-8 font-mono text-[0.72rem] tracking-[0.22em] uppercase text-ghost md:flex-row md:items-center md:justify-between">
+        <div className="mt-16 flex flex-col gap-3 border-t border-edge pt-8 font-mono text-[0.72rem] tracking-[0.22em] uppercase text-signal md:flex-row md:items-center md:justify-between">
           <span>© 2026 The Open Tab</span>
           <span>Forbes, NSW · Hosted by Max Reid</span>
         </div>
@@ -87,16 +87,16 @@ export default function Footer() {
           {Array.from({ length: 2 }).map((_, i) => (
             <div
               key={i}
-              className="flex items-center gap-10 pr-10 font-condensed text-2xl md:text-3xl text-bone/15"
+              className="flex items-center gap-10 pr-10 font-condensed text-2xl md:text-3xl text-signal"
             >
               <span>The Open Tab</span>
-              <span className="text-signal/60">●</span>
+              <span className="text-bone/30">●</span>
               <span>Unearthing the uncommon</span>
-              <span className="text-signal/60">●</span>
+              <span className="text-bone/30">●</span>
               <span>Forbes, NSW</span>
-              <span className="text-signal/60">●</span>
+              <span className="text-bone/30">●</span>
               <span>New episodes fortnightly</span>
-              <span className="text-signal/60">●</span>
+              <span className="text-bone/30">●</span>
             </div>
           ))}
         </div>
