@@ -47,7 +47,9 @@ function Col({
 
 export default function Footer() {
   return (
-    <footer className="relative border-t border-edge">
+    <footer className="relative">
+      {/* Blue divider between the page and the footer */}
+      <div className="h-2.5 w-full bg-signal" />
       <div className="mx-auto max-w-[1600px] px-6 md:px-10 py-20 md:py-28">
         <div className="tick font-mono text-[0.74rem] tracking-[0.22em] uppercase text-ghost mb-7">
           The Open Tab
