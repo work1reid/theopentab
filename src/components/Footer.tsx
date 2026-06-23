@@ -24,7 +24,7 @@ function Col({
 }) {
   return (
     <div>
-      <div className="font-mono text-[0.72rem] tracking-[0.22em] uppercase text-ghost mb-5">
+      <div className="font-mono text-[0.72rem] tracking-[0.22em] uppercase text-bone mb-5">
         {title}
       </div>
       <ul className="space-y-2.5">
@@ -75,7 +75,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-16 flex flex-col gap-3 border-t border-edge pt-8 font-mono text-[0.72rem] tracking-[0.22em] uppercase text-signal md:flex-row md:items-center md:justify-between">
+        <div className="mt-16 flex flex-col gap-3 border-t border-edge pt-8 font-mono text-[0.72rem] tracking-[0.22em] uppercase text-bone md:flex-row md:items-center md:justify-between">
           <span>© 2026 The Open Tab</span>
           <span>Forbes, NSW · Hosted by Max Reid</span>
         </div>
