@@ -1,10 +1,12 @@
-import { latest } from "@/lib/episodes";
-
+// Show-level links — subscribe to the whole podcast, not a single episode
 const platforms = [
-  { label: "Spotify", href: latest.spotify },
-  { label: "Apple Podcasts", href: latest.apple },
-  { label: "YouTube", href: latest.youtube },
-].filter((p) => p.href && p.href !== "#");
+  { label: "Spotify", href: "https://open.spotify.com/show/033nHRXHfv7gCGhAjSMCog" },
+  {
+    label: "Apple Podcasts",
+    href: "https://podcasts.apple.com/us/podcast/the-open-tab/id1896832387",
+  },
+  { label: "YouTube", href: "https://www.youtube.com/@the_opentab" },
+];
 
 export default function SubscribeBand() {
   return (
