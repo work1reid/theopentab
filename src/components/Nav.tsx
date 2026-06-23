@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import OnAirIndicator from "./OnAirIndicator";
+import { useEffect, useState } from "react";
 
 const links = [
   { href: "/", label: "Index" },
@@ -13,42 +13,78 @@ const links = [
 
 export default function Nav() {
   const pathname = usePathname();
-  return (
-    <header className="sticky top-0 z-40 backdrop-blur-md bg-ink/70 border-b border-edge">
-      <div className="mx-auto max-w-[1600px] px-4 sm:px-6 md:px-10 h-16 flex items-center justify-between gap-3">
-        <div className="flex items-center gap-3 sm:gap-6 min-w-0">
-          <OnAirIndicator />
-          <span className="hidden sm:inline-block h-3 w-px bg-edge" />
-          <Link href="/" className="brand-anchor flex items-baseline gap-2 min-w-0">
-            <span className="hidden sm:inline font-display text-base sm:text-lg leading-none whitespace-nowrap">
-              The Open Tab
-            </span>
-          </Link>
-        </div>
+  const [open, setOpen] = useState(false);
 
-        <nav className="flex items-center gap-0 sm:gap-1 md:gap-2 shrink overflow-x-auto no-scrollbar">
+  useEffect(() => setOpen(false), [pathname]);
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
+
+  return (
+    <header className="sticky top-0 z-50 border-b border-edge bg-ink/70 backdrop-blur-md">
+      <div className="mx-auto flex h-16 max-w-[1600px] items-center justify-between px-6 md:px-10">
+        <Link
+          href="/"
+          className="font-condensed text-lg tracking-wide text-bone"
+          onClick={() => setOpen(false)}
+        >
+          The Open Tab
+        </Link>
+
+        <button
+          type="button"
+          aria-label={open ? "Close menu" : "Open menu"}
+          aria-expanded={open}
+          onClick={() => setOpen((v) => !v)}
+          className="relative z-50 flex h-10 w-10 flex-col items-center justify-center gap-[6px]"
+        >
+          <span
+            className={`block h-[2px] w-7 bg-bone transition-transform duration-300 ${
+              open ? "translate-y-[8px] rotate-45" : ""
+            }`}
+          />
+          <span
+            className={`block h-[2px] w-7 bg-bone transition-opacity duration-200 ${
+              open ? "opacity-0" : ""
+            }`}
+          />
+          <span
+            className={`block h-[2px] w-7 bg-bone transition-transform duration-300 ${
+              open ? "-translate-y-[8px] -rotate-45" : ""
+            }`}
+          />
+        </button>
+      </div>
+
+      {/* Full-screen overlay menu */}
+      <div
+        className={`fixed inset-0 top-16 z-40 bg-ink transition-opacity duration-300 ${
+          open ? "visible opacity-100" : "invisible opacity-0"
+        }`}
+      >
+        <nav className="mx-auto flex h-full max-w-[1600px] flex-col justify-center gap-2 px-6 md:px-10">
           {links.map((l) => {
             const active =
-              l.href === "/"
-                ? pathname === "/"
-                : pathname.startsWith(l.href);
+              l.href === "/" ? pathname === "/" : pathname.startsWith(l.href);
             return (
               <Link
                 key={l.href}
                 href={l.href}
-                className={`group relative px-1.5 sm:px-2.5 md:px-3 py-2 font-mono text-[0.66rem] sm:text-[0.78rem] md:text-[0.72rem] tracking-[0.14em] sm:tracking-[0.2em] uppercase transition-colors ${
-                  active ? "text-bone" : "text-ghost hover:text-bone"
+                onClick={() => setOpen(false)}
+                className={`font-condensed text-5xl leading-[1.05] transition-colors md:text-8xl ${
+                  active ? "text-signal" : "text-bone hover:text-signal"
                 }`}
               >
                 {l.label}
-                <span
-                  className={`absolute left-1.5 right-1.5 sm:left-2.5 sm:right-2.5 md:left-3 md:right-3 bottom-1 h-px bg-signal transition-transform origin-left ${
-                    active ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
-                  }`}
-                />
               </Link>
             );
           })}
+          <div className="mt-10 font-mono text-[0.72rem] tracking-[0.22em] uppercase text-ghost">
+            ● On air — hosted by Max Reid · Forbes, NSW
+          </div>
         </nav>
       </div>
     </header>

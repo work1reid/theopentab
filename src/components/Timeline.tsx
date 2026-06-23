@@ -26,35 +26,37 @@ export default function Timeline() {
         <div className="tick font-mono text-[0.74rem] tracking-[0.22em] text-ghost uppercase mb-4">
           The story so far
         </div>
-        <h2 className="font-display text-4xl md:text-6xl leading-[0.9] tracking-snug mb-16 md:mb-20">
-          From an <span className="italic text-signal">open tab.</span>
+        <h2 className="font-condensed text-5xl md:text-7xl lg:text-8xl text-bone mb-16 md:mb-24">
+          From an{" "}
+          <span className="font-display italic lowercase tracking-normal text-signal normal-case">
+            open tab.
+          </span>
         </h2>
 
-        <div className="border-t border-edge">
-          {milestones.map((m) => (
+        {/* Vertical rail */}
+        <div className="relative ml-2 border-l border-edge pl-8 md:pl-14">
+          {milestones.map((m, i) => (
             <div
-              key={m.year}
-              className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-10 border-b border-edge py-10 md:py-12"
+              key={m.year + m.title}
+              data-reveal
+              data-reveal-delay={`${i * 90}`}
+              className="relative pb-16 last:pb-0 md:pb-24"
             >
-              {/* Year + place */}
-              <div className="md:col-span-4">
-                <div className="font-display font-black text-signal text-5xl md:text-7xl leading-none tracking-tightest">
-                  {m.year}
-                </div>
-                <div className="mt-3 font-mono text-[0.72rem] tracking-[0.22em] text-ghost uppercase">
-                  ● {m.place}
-                </div>
-              </div>
+              {/* Node on the rail */}
+              <span className="absolute -left-[33px] top-3 h-2.5 w-2.5 rounded-full bg-signal md:-left-[57px]" />
 
-              {/* Title + body */}
-              <div className="md:col-span-8 md:max-w-2xl">
-                <h3 className="font-display text-2xl md:text-3xl leading-tight tracking-snug mb-4">
-                  {m.title}
-                </h3>
-                <p className="font-mono text-sm md:text-base text-ghost leading-relaxed">
-                  {m.body}
-                </p>
+              <div className="font-condensed text-signal text-6xl md:text-8xl leading-none">
+                {m.year}
               </div>
+              <div className="mt-4 font-mono text-[0.72rem] tracking-[0.22em] text-ghost uppercase">
+                ● {m.place}
+              </div>
+              <h3 className="mt-5 font-display text-2xl md:text-4xl leading-tight tracking-snug text-bone">
+                {m.title}
+              </h3>
+              <p className="mt-4 max-w-2xl font-mono text-sm md:text-base text-ghost leading-relaxed">
+                {m.body}
+              </p>
             </div>
           ))}
         </div>

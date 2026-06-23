@@ -14,6 +14,7 @@ const config: Config = {
       },
       fontFamily: {
         display: ['"Playfair Display"', "ui-serif", "Georgia", "serif"],
+        condensed: ['"Anton"', '"Arial Narrow"', "system-ui", "sans-serif"],
         mono: ['"Space Mono"', "ui-monospace", "Menlo", "monospace"],
       },
       letterSpacing: {
