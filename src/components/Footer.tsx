@@ -81,22 +81,22 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Condensed marquee strip */}
-      <div className="overflow-hidden border-t border-edge py-4">
+      {/* Condensed marquee strip — blue band, black text */}
+      <div className="overflow-hidden bg-signal py-4">
         <div className="marquee">
           {Array.from({ length: 2 }).map((_, i) => (
             <div
               key={i}
-              className="flex items-center gap-10 pr-10 font-condensed text-2xl md:text-3xl text-signal"
+              className="flex items-center gap-10 pr-10 font-condensed text-2xl md:text-3xl text-ink"
             >
               <span>The Open Tab</span>
-              <span className="text-bone/30">●</span>
+              <span className="text-ink/40">●</span>
               <span>Unearthing the uncommon</span>
-              <span className="text-bone/30">●</span>
+              <span className="text-ink/40">●</span>
               <span>Forbes, NSW</span>
-              <span className="text-bone/30">●</span>
+              <span className="text-ink/40">●</span>
               <span>New episodes fortnightly</span>
-              <span className="text-bone/30">●</span>
+              <span className="text-ink/40">●</span>
             </div>
           ))}
         </div>
