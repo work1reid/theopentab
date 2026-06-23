@@ -1,12 +1,5 @@
 import Link from "next/link";
-
-// Naturalistic speech-amplitude pattern (percent heights) — looks like a real recording
-const WAVE = [
-  16, 30, 22, 44, 28, 58, 38, 70, 50, 34, 62, 82, 54, 26, 40, 74, 50, 36, 88,
-  60, 44, 68, 46, 78, 62, 38, 52, 86, 56, 40, 30, 70, 84, 48, 34, 64, 80, 44,
-  38, 66, 54, 28, 46, 72, 58, 32, 50, 68,
-];
-const PLAYHEAD = 19; // bars before this are "played" (brighter)
+import PortraitWaveform from "@/components/PortraitWaveform";
 
 export default function StatementIntro() {
   return (
@@ -50,16 +43,8 @@ export default function StatementIntro() {
                 Host
               </div>
             </div>
-            {/* Waveform motif — static, like a real recording (playhead ~40%) */}
-            <div className="waveform absolute -bottom-5 left-6 right-6">
-              {WAVE.map((h, i) => (
-                <span
-                  key={i}
-                  className={i > PLAYHEAD ? "q" : ""}
-                  style={{ height: `${h}%` }}
-                />
-              ))}
-            </div>
+            {/* Waveform — fills with scroll progress as the portrait passes by */}
+            <PortraitWaveform />
           </div>
         </div>
       </div>
