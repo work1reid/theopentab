@@ -1,124 +1,100 @@
-import Link from "next/link";
-
-const socials = [
-  { label: "Instagram", handle: "@_theopentab", href: "https://instagram.com/_theopentab" },
-  { label: "TikTok", handle: "@_theopentab", href: "https://tiktok.com/@_theopentab" },
+const follow = [
+  { label: "Instagram", href: "https://instagram.com/_theopentab" },
+  { label: "TikTok", href: "https://tiktok.com/@_theopentab" },
 ];
+
+const listen = [
+  { label: "Spotify", href: "https://open.spotify.com/show/033nHRXHfv7gCGhAjSMCog" },
+  { label: "Apple Podcasts", href: "https://podcasts.apple.com/us/podcast/the-open-tab/id1896832387" },
+  { label: "YouTube", href: "https://www.youtube.com/@the_opentab" },
+];
+
+const navigate = [
+  { label: "Episodes", href: "/episodes" },
+  { label: "About", href: "/about" },
+  { label: "Members", href: "/members" },
+];
+
+function Col({
+  title,
+  items,
+}: {
+  title: string;
+  items: { label: string; href: string }[];
+}) {
+  return (
+    <div>
+      <div className="font-mono text-[0.72rem] tracking-[0.22em] uppercase text-ghost mb-5">
+        {title}
+      </div>
+      <ul className="space-y-2.5">
+        {items.map((i) => (
+          <li key={i.label}>
+            <a
+              href={i.href}
+              target={i.href.startsWith("http") ? "_blank" : undefined}
+              rel={i.href.startsWith("http") ? "noreferrer" : undefined}
+              className="font-condensed text-xl tracking-wide text-bone transition-colors hover:text-signal"
+            >
+              {i.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
 
 export default function Footer() {
   return (
-    <footer className="relative border-t border-edge mt-32">
-      <div className="hr-static" />
-      <div className="mx-auto max-w-[1600px] px-6 md:px-10 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
-          <div className="md:col-span-5">
-            <div className="font-mono text-[0.78rem] tracking-[0.22em] text-ghost uppercase mb-4 tick">
-              The Open Tab
-            </div>
-            <p className="font-display text-3xl md:text-4xl leading-[1.05] tracking-snug">
-              Unearthing the<br />
-              <span className="italic text-signal">uncommon.</span>
-            </p>
-            <p className="mt-6 font-mono text-base text-bone/70 max-w-sm leading-relaxed">
-              Long conversations with people worth listening to.
-              Hosted by Max Reid. Recorded in Forbes, NSW.
-            </p>
-          </div>
-
-          <div className="md:col-span-3 md:col-start-7">
-            <div className="font-mono text-[0.74rem] tracking-[0.22em] text-ghost uppercase mb-4">
-              Follow
-            </div>
-            <ul className="space-y-2">
-              {socials.map((s) => (
-                <li key={s.label}>
-                  <a
-                    href={s.href}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="group inline-flex items-baseline gap-3 font-mono text-sm text-bone hover:text-signal transition-colors"
-                  >
-                    <span className="font-display italic text-base">
-                      {s.label}
-                    </span>
-                    <span className="text-ghost group-hover:text-signal transition-colors">
-                      {s.handle}
-                    </span>
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="md:col-span-3">
-            <div className="font-mono text-[0.74rem] tracking-[0.22em] text-ghost uppercase mb-4">
-              Listen
-            </div>
-            <ul className="space-y-2 font-mono text-sm">
-              <li>
-                <a
-                  className="text-bone hover:text-signal transition-colors"
-                  href="https://open.spotify.com/show/033nHRXHfv7gCGhAjSMCog"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Spotify
-                </a>
-              </li>
-              <li>
-                <a
-                  className="text-bone hover:text-signal transition-colors"
-                  href="https://podcasts.apple.com/us/podcast/the-open-tab/id1896832387"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Apple Podcasts
-                </a>
-              </li>
-              <li>
-                <a
-                  className="text-bone hover:text-signal transition-colors"
-                  href="https://www.youtube.com/@the_opentab"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  YouTube
-                </a>
-              </li>
-            </ul>
-          </div>
+    <footer className="relative border-t border-edge">
+      <div className="mx-auto max-w-[1600px] px-6 md:px-10 py-20 md:py-28">
+        <div className="tick font-mono text-[0.74rem] tracking-[0.22em] uppercase text-ghost mb-7">
+          The Open Tab
         </div>
 
-        <div className="mt-20 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
-          <div className="font-mono text-[0.74rem] tracking-[0.22em] text-ghost uppercase">
-            © 2026 The Open Tab · Forbes NSW
-          </div>
-          <div
-            className="font-mono text-[0.74rem] tracking-[0.22em] text-ghost uppercase"
-            suppressHydrationWarning
-          >
-            Transmission · Studio One · {new Date().toLocaleDateString("en-AU")}
-          </div>
+        {/* Condensed sign-off */}
+        <h2 className="font-condensed text-5xl sm:text-6xl md:text-8xl lg:text-9xl leading-[0.88] text-bone">
+          Unearthing the{" "}
+          <span className="font-display italic lowercase tracking-normal normal-case text-signal">
+            uncommon.
+          </span>
+        </h2>
+        <p className="mt-8 max-w-xl font-mono text-sm md:text-base text-bone/65 leading-relaxed">
+          Long conversations with people worth listening to. Hosted by Max Reid,
+          recorded raw in Forbes, NSW.
+        </p>
+
+        {/* Link columns */}
+        <div className="mt-16 grid grid-cols-2 gap-10 border-t border-edge pt-12 md:grid-cols-3">
+          <Col title="Listen" items={listen} />
+          <Col title="Follow" items={follow} />
+          <Col title="Navigate" items={navigate} />
+        </div>
+
+        {/* Bottom bar */}
+        <div className="mt-16 flex flex-col gap-3 border-t border-edge pt-8 font-mono text-[0.72rem] tracking-[0.22em] uppercase text-ghost md:flex-row md:items-center md:justify-between">
+          <span>© 2026 The Open Tab</span>
+          <span>Forbes, NSW · Hosted by Max Reid</span>
         </div>
       </div>
 
-      <div className="overflow-hidden border-t border-edge py-3">
+      {/* Condensed marquee strip */}
+      <div className="overflow-hidden border-t border-edge py-4">
         <div className="marquee">
           {Array.from({ length: 2 }).map((_, i) => (
             <div
               key={i}
-              className="flex items-center gap-12 pr-12 font-display italic text-2xl text-bone/30"
+              className="flex items-center gap-10 pr-10 font-condensed text-2xl md:text-3xl text-bone/15"
             >
               <span>The Open Tab</span>
-              <span className="text-signal">●</span>
-              <span>Episode 01 · Cameron Sharp</span>
-              <span className="text-signal">●</span>
-              <span>Now Streaming</span>
-              <span className="text-signal">●</span>
-              <span>Forbes NSW</span>
-              <span className="text-signal">●</span>
+              <span className="text-signal/60">●</span>
               <span>Unearthing the uncommon</span>
-              <span className="text-signal">●</span>
+              <span className="text-signal/60">●</span>
+              <span>Forbes, NSW</span>
+              <span className="text-signal/60">●</span>
+              <span>New episodes fortnightly</span>
+              <span className="text-signal/60">●</span>
             </div>
           ))}
         </div>

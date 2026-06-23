@@ -127,8 +127,22 @@
   .tl .t{margin-top:20px;font-family:"Playfair Display",serif;font-size:clamp(1.5rem,3vw,2.25rem);line-height:1.15;color:var(--bone)}
   .tl .b{margin-top:16px;max-width:42rem;font-family:"Space Mono",monospace;font-size:.95rem;line-height:1.6;color:var(--ghost)}
 
-  footer{border-top:1px solid var(--edge);padding:48px 0}
-  footer .row{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center;font-family:"Space Mono",monospace;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ghost)}
+  footer{border-top:1px solid var(--edge)}
+  .fwrap{padding:80px 0}
+  @media(min-width:768px){.fwrap{padding:112px 0}}
+  .fsignoff{font-family:"Anton",sans-serif;text-transform:uppercase;font-size:clamp(3rem,8vw,7rem);line-height:.88;color:var(--bone)}
+  .fsignoff .it{font-family:"Playfair Display",serif;font-style:italic;text-transform:none;color:var(--signal)}
+  .fcols{margin-top:64px;display:grid;grid-template-columns:1fr 1fr;gap:40px;border-top:1px solid var(--edge);padding-top:48px}
+  @media(min-width:768px){.fcols{grid-template-columns:repeat(3,1fr)}}
+  .fcol .lbl{font-family:"Space Mono",monospace;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ghost);margin-bottom:20px}
+  .fcol a{display:block;font-family:"Anton",sans-serif;text-transform:uppercase;letter-spacing:.02em;font-size:1.25rem;color:var(--bone);margin-bottom:10px}
+  .fcol a:hover{color:var(--signal)}
+  .fbar{margin-top:64px;border-top:1px solid var(--edge);padding-top:32px;display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;font-family:"Space Mono",monospace;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ghost)}
+  .fmarq{overflow:hidden;border-top:1px solid var(--edge);padding:16px 0}
+  .fmarq .track{display:flex;width:max-content;animation:marq 40s linear infinite}
+  .fmarq .grp{display:flex;align-items:center;gap:40px;padding-right:40px;font-family:"Anton",sans-serif;text-transform:uppercase;font-size:1.75rem;color:rgba(240,240,240,.15);white-space:nowrap}
+  .fmarq .grp .d{color:rgba(108,182,255,.6)}
+  @keyframes marq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
   .note{background:#111;border-bottom:1px solid var(--edge);padding:10px 24px;font-family:"Space Mono",monospace;font-size:.7rem;letter-spacing:.05em;color:var(--signal);text-align:center}
 </style>
@@ -250,10 +264,23 @@
     </div>
   </div></section>
 
-  <footer><div class="wrap row">
-    <span>© The Open Tab — Forbes, NSW</span>
-    <span>Hosted by Max Reid</span>
-  </div></footer>
+  <footer>
+    <div class="wrap fwrap">
+      <div class="eyebrow tick" style="margin-bottom:28px">The Open Tab</div>
+      <h2 class="fsignoff">Unearthing the <span class="it">uncommon.</span></h2>
+      <p style="margin-top:32px;max-width:36rem;font-family:'Space Mono',monospace;font-size:.95rem;line-height:1.6;color:rgba(240,240,240,.65)">Long conversations with people worth listening to. Hosted by Max Reid, recorded raw in Forbes, NSW.</p>
+      <div class="fcols">
+        <div class="fcol"><div class="lbl">Listen</div><a href="#">Spotify</a><a href="#">Apple Podcasts</a><a href="#">YouTube</a></div>
+        <div class="fcol"><div class="lbl">Follow</div><a href="#">Instagram</a><a href="#">TikTok</a></div>
+        <div class="fcol"><div class="lbl">Navigate</div><a href="#">Episodes</a><a href="#">About</a><a href="#">Members</a></div>
+      </div>
+      <div class="fbar"><span>© 2026 The Open Tab</span><span>Forbes, NSW · Hosted by Max Reid</span></div>
+    </div>
+    <div class="fmarq"><div class="track">
+      <div class="grp"><span>The Open Tab</span><span class="d">●</span><span>Unearthing the uncommon</span><span class="d">●</span><span>Forbes, NSW</span><span class="d">●</span><span>New episodes fortnightly</span><span class="d">●</span></div>
+      <div class="grp"><span>The Open Tab</span><span class="d">●</span><span>Unearthing the uncommon</span><span class="d">●</span><span>Forbes, NSW</span><span class="d">●</span><span>New episodes fortnightly</span><span class="d">●</span></div>
+    </div></div>
+  </footer>
 
   <script>
     // build a static, real-looking recording waveform (playhead ~40%)
