@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import Magnetic from "@/components/Magnetic";
 
 const links = [
   { href: "/", label: "Index" },
@@ -35,29 +36,31 @@ export default function Nav() {
             The Open Tab
           </Link>
 
-          <button
-            type="button"
-            aria-label={open ? "Close menu" : "Open menu"}
-            aria-expanded={open}
-            onClick={() => setOpen((v) => !v)}
-            className="relative z-[60] flex h-10 w-10 flex-col items-center justify-center gap-[6px]"
-          >
-            <span
-              className={`block h-[2px] w-7 bg-bone transition-transform duration-300 ${
-                open ? "translate-y-[8px] rotate-45" : ""
-              }`}
-            />
-            <span
-              className={`block h-[2px] w-7 bg-bone transition-opacity duration-200 ${
-                open ? "opacity-0" : ""
-              }`}
-            />
-            <span
-              className={`block h-[2px] w-7 bg-bone transition-transform duration-300 ${
-                open ? "-translate-y-[8px] -rotate-45" : ""
-              }`}
-            />
-          </button>
+          <Magnetic strength={0.5} className="relative z-[60]">
+            <button
+              type="button"
+              aria-label={open ? "Close menu" : "Open menu"}
+              aria-expanded={open}
+              onClick={() => setOpen((v) => !v)}
+              className="flex h-10 w-10 flex-col items-center justify-center gap-[6px]"
+            >
+              <span
+                className={`block h-[2px] w-7 bg-bone transition-transform duration-300 ${
+                  open ? "translate-y-[8px] rotate-45" : ""
+                }`}
+              />
+              <span
+                className={`block h-[2px] w-7 bg-bone transition-opacity duration-200 ${
+                  open ? "opacity-0" : ""
+                }`}
+              />
+              <span
+                className={`block h-[2px] w-7 bg-bone transition-transform duration-300 ${
+                  open ? "-translate-y-[8px] -rotate-45" : ""
+                }`}
+              />
+            </button>
+          </Magnetic>
         </div>
       </header>
 
@@ -77,7 +80,7 @@ export default function Nav() {
                 key={l.href}
                 href={l.href}
                 onClick={() => setOpen(false)}
-                className={`font-condensed text-5xl leading-[1.05] transition-colors md:text-8xl ${
+                className={`link-sweep w-fit font-condensed text-5xl leading-[1.05] transition-colors md:text-8xl ${
                   active ? "text-signal" : "text-bone hover:text-signal"
                 }`}
               >

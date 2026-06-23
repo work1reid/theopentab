@@ -1,5 +1,6 @@
 import Link from "next/link";
 import PortraitWaveform from "@/components/PortraitWaveform";
+import Magnetic from "@/components/Magnetic";
 
 export default function StatementIntro() {
   return (
@@ -20,10 +21,12 @@ export default function StatementIntro() {
             . Recorded <span className="kw">raw</span>, edited honest — in
             Forbes, NSW.
           </h2>
-          <Link href="/about" className="btn-pill mt-12">
-            About Max
-            <span aria-hidden>→</span>
-          </Link>
+          <Magnetic className="mt-12">
+            <Link href="/about" className="btn-pill">
+              About Max
+              <span aria-hidden>→</span>
+            </Link>
+          </Magnetic>
         </div>
 
         {/* Portrait + waveform */}

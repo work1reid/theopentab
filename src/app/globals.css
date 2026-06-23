@@ -301,6 +301,63 @@ body {
   }
 }
 
+/* Custom cursor — trailing ring, grows over interactive elements (desktop only) */
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 22px;
+  height: 22px;
+  border: 1.5px solid var(--signal);
+  border-radius: 9999px;
+  pointer-events: none;
+  z-index: 9999;
+  will-change: transform;
+  transition: width 0.25s ease, height 0.25s ease, background-color 0.25s ease;
+  mix-blend-mode: difference;
+}
+.cursor-ring.is-grow {
+  width: 54px;
+  height: 54px;
+  background: rgba(108, 182, 255, 0.12);
+}
+@media (pointer: coarse) {
+  .cursor-ring {
+    display: none;
+  }
+}
+html.has-cursor,
+html.has-cursor a,
+html.has-cursor button {
+  cursor: none;
+}
+html.has-cursor input,
+html.has-cursor textarea,
+html.has-cursor select {
+  cursor: auto;
+}
+
+/* Link hover sweep — animated underline that wipes in from the left */
+.link-sweep {
+  position: relative;
+}
+.link-sweep::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -2px;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.link-sweep:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
 /* Scroll-reveal — items start visible (no-JS safe); JS arms them, then reveals on scroll */
 [data-reveal].armed {
   opacity: 0;

@@ -33,6 +33,16 @@
   .ep .thumb{will-change:transform}
   .hero .inner{will-change:transform,opacity}
 
+  /* custom cursor */
+  .cursor-ring{position:fixed;top:0;left:0;width:22px;height:22px;border:1.5px solid var(--signal);border-radius:9999px;pointer-events:none;z-index:9999;will-change:transform;transition:width .25s,height .25s,background-color .25s;mix-blend-mode:difference}
+  .cursor-ring.is-grow{width:54px;height:54px;background:rgba(108,182,255,.12)}
+  @media(pointer:coarse){.cursor-ring{display:none}}
+  html.has-cursor,html.has-cursor a,html.has-cursor button{cursor:none}
+  /* footer link hover sweep */
+  .fcol a{position:relative}
+  .fcol a::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:1px;background:currentColor;transform:scaleX(0);transform-origin:right;transition:transform .4s cubic-bezier(.2,.7,.2,1)}
+  .fcol a:hover::after{transform:scaleX(1);transform-origin:left}
+
   /* nav */
   nav{position:sticky;top:0;z-index:40;background:rgba(13,13,13,.7);backdrop-filter:blur(8px);border-bottom:1px solid var(--edge)}
   nav .wrap{height:64px;display:flex;align-items:center;justify-content:space-between}
@@ -286,6 +296,8 @@
     </div></div>
   </footer>
 
+  <div class="cursor-ring"></div>
+
   <script>
     // portrait waveform — fills with scroll as it passes through the viewport
     var WAVE=[16,30,22,44,28,58,38,70,50,34,62,82,54,26,40,74,50,36,88,60,44,68,46,78,62,38,52,86,56,40,30,70,84,48,34,64,80,44,38,66,54,28,46,72,58,32,50,68];
@@ -325,6 +337,24 @@
           var y=window.scrollY;hin.style.transform='translateY('+(y*-0.22)+'px)';hin.style.opacity=Math.max(0,1-y/520);
         });
       },{passive:true});}
+
+      // custom cursor (desktop only)
+      if(!window.matchMedia('(pointer: coarse)').matches){
+        var ring=document.querySelector('.cursor-ring');
+        if(ring){
+          document.documentElement.classList.add('has-cursor');
+          var cmx=innerWidth/2,cmy=innerHeight/2,ccx=cmx,ccy=cmy;
+          addEventListener('mousemove',function(e){cmx=e.clientX;cmy=e.clientY;});
+          (function cloop(){ccx+=(cmx-ccx)*0.2;ccy+=(cmy-ccy)*0.2;ring.style.transform='translate('+ccx+'px,'+ccy+'px) translate(-50%,-50%)';requestAnimationFrame(cloop);})();
+          document.addEventListener('mouseover',function(e){if(e.target.closest&&e.target.closest('a,button,[data-cursor]'))ring.classList.add('is-grow');});
+          document.addEventListener('mouseout',function(e){if(e.target.closest&&e.target.closest('a,button,[data-cursor]'))ring.classList.remove('is-grow');});
+        }
+        // magnetic CTAs
+        document.querySelectorAll('.pill').forEach(function(el){
+          el.addEventListener('mousemove',function(e){var r=el.getBoundingClientRect();var x=e.clientX-(r.left+r.width/2),y=e.clientY-(r.top+r.height/2);el.style.transform='translate('+(x*0.35)+'px,'+(y*0.35)+'px)';});
+          el.addEventListener('mouseleave',function(){el.style.transform='';});
+        });
+      }
     }
 
   </script>

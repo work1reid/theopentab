@@ -34,7 +34,7 @@ function Col({
               href={i.href}
               target={i.href.startsWith("http") ? "_blank" : undefined}
               rel={i.href.startsWith("http") ? "noreferrer" : undefined}
-              className="font-condensed text-xl tracking-wide text-bone transition-colors hover:text-signal"
+              className="link-sweep inline-block font-condensed text-xl tracking-wide text-bone transition-colors hover:text-signal"
             >
               {i.label}
             </a>

@@ -1,6 +1,7 @@
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import RevealManager from "@/components/RevealManager";
+import CustomCursor from "@/components/CustomCursor";
 
 export default function PublicLayout({
   children,
@@ -13,6 +14,7 @@ export default function PublicLayout({
       <main>{children}</main>
       <Footer />
       <RevealManager />
+      <CustomCursor />
     </>
   );
 }
