@@ -6,6 +6,7 @@ guest: "Cameron Sharp"
 guestSlug: "cameron-sharp"
 episodeSlug: "cameron-sharp"
 pillar: true
+featured: true
 ogImage: "/ep1-cameron.jpg"
 keywords:
   - "Cameron Sharp"

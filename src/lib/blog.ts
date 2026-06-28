@@ -14,6 +14,7 @@ export type BlogPost = {
   episodeSlug?: string;
   pillar?: boolean;
   topic?: string;
+  featured?: boolean;
   keywords?: string[];
   ogImage?: string;
   draft?: boolean;
@@ -45,6 +46,7 @@ function parseFile(file: string): BlogPost {
     episodeSlug: data.episodeSlug,
     pillar: data.pillar ?? false,
     topic: data.topic,
+    featured: data.featured ?? false,
     keywords: data.keywords ?? [],
     ogImage: data.ogImage,
     draft: data.draft ?? false,
@@ -68,6 +70,14 @@ export function getAllPosts(): BlogPost[] {
 
 export function getPost(slug: string): BlogPost | null {
   return getAllPosts().find((p) => p.slug === slug) ?? null;
+}
+
+// Curated "popular / most read" posts for the blog home (falls back to pillars).
+export function getFeaturedPosts(limit = 6): BlogPost[] {
+  const all = getAllPosts();
+  const featured = all.filter((p) => p.featured);
+  const pool = featured.length > 0 ? featured : all.filter((p) => p.pillar);
+  return pool.slice(0, limit);
 }
 
 // The article that covers a given episode (its pillar), for cross-linking.

@@ -7,6 +7,7 @@ guestSlug: "cameron-sharp"
 episodeSlug: "cameron-sharp"
 topic: "Mindset"
 pillar: false
+featured: true
 ogImage: "/ep1-cameron.jpg"
 keywords:
   - "hard work beats talent"

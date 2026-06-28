@@ -1,3 +1,6 @@
+import Link from "next/link";
+import { latest } from "@/lib/episodes";
+
 const follow = [
   { label: "Instagram", href: "https://instagram.com/_theopentab" },
   { label: "TikTok", href: "https://tiktok.com/@_theopentab" },
@@ -9,8 +12,9 @@ const listen = [
   { label: "YouTube", href: "https://www.youtube.com/@the_opentab" },
 ];
 
-const navigate = [
+const explore = [
   { label: "Episodes", href: "/episodes" },
+  { label: "Writing", href: "/blog" },
   { label: "About", href: "/about" },
   { label: "Members", href: "/members" },
 ];
@@ -55,28 +59,54 @@ export default function Footer() {
           The Open Tab
         </div>
 
-        {/* Condensed sign-off */}
-        <h2 className="font-condensed text-5xl sm:text-6xl md:text-8xl lg:text-9xl leading-[0.88] text-bone">
-          Unearthing the{" "}
-          <span className="font-display italic lowercase tracking-normal normal-case text-signal">
-            uncommon.
-          </span>
-        </h2>
-        <p className="mt-8 max-w-xl font-mono text-sm md:text-base text-bone/65 leading-relaxed">
-          Long conversations with people worth listening to. Hosted by Max Reid,
-          recorded raw in Forbes, NSW.
-        </p>
+        {/* Sign-off + CTA, two columns on desktop */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-end">
+          <div className="lg:col-span-8">
+            <h2 className="font-condensed text-5xl sm:text-6xl md:text-8xl lg:text-9xl leading-[0.88] text-bone">
+              Unearthing the{" "}
+              <span className="font-display italic lowercase tracking-normal normal-case text-signal">
+                uncommon.
+              </span>
+            </h2>
+            <p className="mt-8 max-w-xl font-mono text-sm md:text-base text-bone/65 leading-relaxed">
+              Long conversations with people worth listening to. Hosted by Max
+              Reid, recorded raw in Forbes, NSW.
+            </p>
+          </div>
+
+          {/* CTA block */}
+          <div className="lg:col-span-4 flex flex-col gap-4">
+            <Link href={`/episodes/${latest.slug}`} className="btn-pill">
+              Listen to the latest
+              <span aria-hidden>→</span>
+            </Link>
+            <Link
+              href="/members"
+              className="font-mono text-[0.74rem] tracking-[0.22em] uppercase text-ghost hover:text-signal transition-colors"
+            >
+              Join the waitlist →
+            </Link>
+          </div>
+        </div>
 
         {/* Link columns */}
         <div className="mt-16 grid grid-cols-2 gap-10 border-t border-edge pt-12 md:grid-cols-3">
           <Col title="Listen" items={listen} />
           <Col title="Follow" items={follow} />
-          <Col title="Navigate" items={navigate} />
+          <Col title="Explore" items={explore} />
         </div>
 
         {/* Bottom bar */}
         <div className="mt-16 flex flex-col gap-3 border-t border-edge pt-8 font-mono text-[0.72rem] tracking-[0.22em] uppercase text-bone md:flex-row md:items-center md:justify-between">
           <span>© 2026 The Open Tab</span>
+          <a
+            href="https://instagram.com/_theopentab"
+            target="_blank"
+            rel="noreferrer"
+            className="text-ghost hover:text-signal transition-colors"
+          >
+            Get in touch — @the_opentab
+          </a>
           <span>Forbes, NSW · Hosted by Max Reid</span>
         </div>
       </div>

@@ -6,6 +6,7 @@ guest: "Steph Cooke"
 guestSlug: "steph-cooke"
 episodeSlug: "steph-cooke"
 pillar: true
+featured: true
 ogImage: "/steph-cooke.jpg"
 keywords:
   - "Steph Cooke"

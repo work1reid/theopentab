@@ -7,6 +7,7 @@ guestSlug: "cayden-ryan"
 episodeSlug: "cayden-ryan"
 topic: "Money"
 pillar: false
+featured: true
 ogImage: "/cayden-ryan.jpg"
 keywords:
   - "million vs billion"

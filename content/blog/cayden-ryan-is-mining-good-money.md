@@ -7,6 +7,7 @@ guestSlug: "cayden-ryan"
 episodeSlug: "cayden-ryan"
 topic: "Mining & Work"
 pillar: false
+featured: true
 ogImage: "/cayden-ryan.jpg"
 keywords:
   - "is mining good money"

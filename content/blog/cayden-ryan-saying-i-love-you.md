@@ -7,6 +7,7 @@ guestSlug: "cayden-ryan"
 episodeSlug: "cayden-ryan"
 topic: "Family"
 pillar: false
+featured: true
 ogImage: "/cayden-ryan.jpg"
 keywords:
   - "men expressing emotions"
