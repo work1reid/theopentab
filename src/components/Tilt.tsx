@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 /** Subtle 3D tilt toward the cursor. CSS-3D only, no dependencies. */
 export default function Tilt({
@@ -13,11 +13,16 @@ export default function Tilt({
   max?: number;
 }) {
   const ref = useRef<HTMLDivElement>(null);
+  const [enabled, setEnabled] = useState(false);
+
+  // Evaluate the reduced-motion check once, not per mousemove.
+  useEffect(() => {
+    setEnabled(!window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+  }, []);
 
   function onMove(e: React.MouseEvent) {
     const el = ref.current;
     if (!el) return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const r = el.getBoundingClientRect();
     const px = (e.clientX - r.left) / r.width - 0.5;
     const py = (e.clientY - r.top) / r.height - 0.5;
@@ -32,8 +37,8 @@ export default function Tilt({
   return (
     <div
       ref={ref}
-      onMouseMove={onMove}
-      onMouseLeave={reset}
+      onMouseMove={enabled ? onMove : undefined}
+      onMouseLeave={enabled ? reset : undefined}
       className={className}
       style={{ transition: "transform 0.25s ease", transformStyle: "preserve-3d" }}
     >

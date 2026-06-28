@@ -1,6 +1,8 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useRef } from "react";
+import { latest } from "@/lib/episodes";
 
 export default function VideoHero() {
   const contentRef = useRef<HTMLDivElement>(null);
@@ -28,26 +30,20 @@ export default function VideoHero() {
 
   return (
     <section className="relative h-[calc(100svh-4rem)] min-h-[560px] w-full overflow-hidden scanlines">
+      {/* Single <video>: the browser evaluates the <source> media queries and
+          fetches ONLY the matching one, so a device never downloads both files. */}
       <video
-        className="absolute inset-0 hidden h-full w-full object-cover object-[center_60%] brightness-[0.55] md:block"
-        src="/hero/intro.mp4"
+        className="absolute inset-0 h-full w-full object-cover object-[center_60%] brightness-[0.55]"
         poster="/hero/intro-poster.jpg"
         autoPlay
         muted
         loop
         playsInline
         preload="auto"
-      />
-      <video
-        className="absolute inset-0 block h-full w-full object-cover brightness-[0.55] md:hidden"
-        src="/hero/intro-mobile.mp4"
-        poster="/hero/intro-mobile-poster.jpg"
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="auto"
-      />
+      >
+        <source src="/hero/intro-mobile.mp4" media="(max-width: 767px)" />
+        <source src="/hero/intro.mp4" />
+      </video>
 
       <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/35 to-ink/55" />
 
@@ -65,6 +61,22 @@ export default function VideoHero() {
           <span className="block">The Open</span>
           <span className="block text-signal">Tab</span>
         </h1>
+
+        <p className="mt-7 max-w-xl font-mono text-sm sm:text-base leading-relaxed text-bone/75 reveal reveal-2">
+          Long-form interviews with people worth listening to. Recorded raw in
+          Forbes, NSW.
+        </p>
+
+        <div className="mt-9 flex flex-wrap items-center justify-center gap-4 reveal reveal-2">
+          <Link href={`/episodes/${latest.slug}`} className="btn-pill">
+            Listen to the latest
+            <span aria-hidden>→</span>
+          </Link>
+          <Link href="/episodes" className="btn-platform">
+            <span className="dot-corner" aria-hidden />
+            All episodes
+          </Link>
+        </div>
       </div>
 
       {/* Scroll indicator */}

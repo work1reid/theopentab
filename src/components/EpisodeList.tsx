@@ -10,12 +10,6 @@ function platforms(ep: Episode) {
   ].filter((p) => p.href && p.href !== "#");
 }
 
-function watchHref(ep: Episode): string {
-  if (ep.youtube && ep.youtube !== "#") return ep.youtube;
-  if (ep.spotify && ep.spotify !== "#") return ep.spotify;
-  return `/episodes#${ep.slug}`;
-}
-
 function PlayIcon() {
   return (
     <svg viewBox="0 0 24 24" className="h-5 w-5 translate-x-[1px]" aria-hidden>
@@ -63,9 +57,7 @@ export default function EpisodeList({
               {/* Thumbnail with play button — 3D tilt toward cursor */}
               <Tilt className="md:col-span-5">
                 <Link
-                  href={watchHref(ep)}
-                  target="_blank"
-                  rel="noreferrer"
+                  href={`/episodes/${ep.slug}`}
                   className="relative block aspect-video overflow-hidden border border-edge bg-whisper"
                   aria-label={`Watch ${ep.guest}`}
                 >
@@ -107,9 +99,7 @@ export default function EpisodeList({
 
                 <div className="mt-7 flex flex-wrap items-center gap-x-7 gap-y-3">
                   <Link
-                    href={watchHref(ep)}
-                    target="_blank"
-                    rel="noreferrer"
+                    href={`/episodes/${ep.slug}`}
                     className="inline-flex items-center gap-2 font-condensed text-base tracking-wider text-signal transition-colors hover:text-bone"
                   >
                     Watch episode <span aria-hidden>→</span>

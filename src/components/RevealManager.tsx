@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import { usePathname } from "next/navigation";
 
 /**
  * Global scroll-reveal. Any element with `data-reveal` starts visible (no-JS safe);
@@ -8,6 +9,8 @@ import { useEffect } from "react";
  * Optional `data-reveal-delay="120"` (ms) staggers siblings.
  */
 export default function RevealManager() {
+  const pathname = usePathname();
+
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
@@ -32,7 +35,7 @@ export default function RevealManager() {
 
     els.forEach((el) => io.observe(el));
     return () => io.disconnect();
-  }, []);
+  }, [pathname]);
 
   return null;
 }

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import PortraitWaveform from "@/components/PortraitWaveform";
 import Magnetic from "@/components/Magnetic";
+import { latest } from "@/lib/episodes";
 
 export default function StatementIntro() {
   return (
@@ -21,12 +22,20 @@ export default function StatementIntro() {
             . Recorded <span className="kw">raw</span>, edited honest — in
             Forbes, NSW.
           </h2>
-          <Magnetic className="mt-12">
-            <Link href="/about" className="btn-pill">
+          <div className="mt-12 flex flex-wrap items-center gap-8">
+            <Magnetic>
+              <Link href={`/episodes/${latest.slug}`} className="btn-pill">
+                Latest episode
+                <span aria-hidden>→</span>
+              </Link>
+            </Magnetic>
+            <Link
+              href="/about"
+              className="font-mono text-[0.74rem] tracking-[0.22em] uppercase text-ghost hover:text-bone transition-colors"
+            >
               About Max
-              <span aria-hidden>→</span>
             </Link>
-          </Magnetic>
+          </div>
         </div>
 
         {/* Portrait + waveform */}

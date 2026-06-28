@@ -9,6 +9,17 @@ import {
   spotifyEmbed,
 } from "@/lib/episodes";
 
+const SITE = "https://theopentab.vercel.app";
+
+// "1h 33m" / "27m" / "2h 35m" -> ISO-8601 duration ("PT1H33M")
+function isoDuration(duration: string): string | null {
+  if (!duration) return null;
+  const h = duration.match(/(\d+)\s*h/i);
+  const m = duration.match(/(\d+)\s*m/i);
+  if (!h && !m) return null;
+  return `PT${h ? `${h[1]}H` : ""}${m ? `${m[1]}M` : ""}`;
+}
+
 export function generateStaticParams() {
   return episodes.map((e) => ({ slug: e.slug }));
 }
@@ -21,9 +32,23 @@ export async function generateMetadata({
   const { slug } = await params;
   const ep = getEpisode(slug);
   if (!ep) return { title: "Episode — The Open Tab" };
+  const canonical = `/episodes/${slug}`;
   return {
-    title: `${ep.guest} — The Open Tab`,
+    title: `${ep.title} · The Open Tab`,
     description: ep.description,
+    alternates: { canonical },
+    openGraph: {
+      type: "article",
+      title: ep.title,
+      description: ep.description,
+      images: [{ url: ep.image, alt: `${ep.guest} — The Open Tab` }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: ep.title,
+      description: ep.description,
+      images: [ep.image],
+    },
   };
 }
 
@@ -39,8 +64,41 @@ export default async function EpisodePage({
   const ytId = youtubeId(ep.youtube);
   const spotify = spotifyEmbed(ep.spotify);
 
+  const canonicalUrl = `${SITE}/episodes/${slug}`;
+  const mediaUrl =
+    ep.spotify && ep.spotify !== "#"
+      ? ep.spotify
+      : ep.youtube && ep.youtube !== "#"
+      ? ep.youtube
+      : null;
+  const iso = isoDuration(ep.duration);
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "PodcastEpisode",
+    name: ep.title,
+    description: ep.description,
+    datePublished: ep.date,
+    url: canonicalUrl,
+    image: ep.image,
+    partOfSeries: {
+      "@type": "PodcastSeries",
+      name: "The Open Tab",
+      url: SITE,
+    },
+    ...(iso ? { timeRequired: iso } : {}),
+    ...(mediaUrl
+      ? { associatedMedia: { "@type": "MediaObject", url: mediaUrl } }
+      : {}),
+  };
+
   return (
     <article className="mx-auto max-w-[1100px] px-6 md:px-10 pt-10 md:pt-14 pb-24">
+      {ep.released && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      )}
       {/* Back */}
       <Link
         href="/episodes"
@@ -70,16 +128,13 @@ export default async function EpisodePage({
         )}
       </div>
 
-      {/* Guest + title */}
+      {/* Guest kicker + title */}
       <div className="mt-6 font-mono text-[0.74rem] tracking-[0.22em] text-ghost uppercase">
-        Guest
-      </div>
-      <h1 className="mt-2 font-display text-5xl md:text-7xl leading-[0.95] tracking-snug text-signal">
         {ep.guest}
+      </div>
+      <h1 className="mt-2 font-display text-4xl md:text-6xl leading-[0.95] tracking-snug text-signal max-w-4xl">
+        {ep.title}
       </h1>
-      <p className="mt-6 font-display italic text-2xl md:text-3xl leading-snug tracking-snug text-bone/70 max-w-3xl">
-        &ldquo;{ep.title}&rdquo;
-      </p>
 
       {ep.released ? (
         <>

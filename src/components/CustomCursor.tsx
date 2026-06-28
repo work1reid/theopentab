@@ -1,17 +1,25 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 /** Trailing ring cursor that grows over interactive elements. Desktop only. */
 export default function CustomCursor() {
   const ref = useRef<HTMLDivElement>(null);
+  const [enabled, setEnabled] = useState(false);
 
+  // Decide once whether the cursor should run at all.
   useEffect(() => {
     if (
       window.matchMedia("(pointer: coarse)").matches ||
       window.matchMedia("(prefers-reduced-motion: reduce)").matches
     )
       return;
+    setEnabled(true);
+  }, []);
+
+  // Wire up the ring only after it has actually been rendered.
+  useEffect(() => {
+    if (!enabled) return;
 
     const dot = ref.current;
     if (!dot) return;
@@ -54,7 +62,8 @@ export default function CustomCursor() {
       document.removeEventListener("mouseout", onOut);
       document.documentElement.classList.remove("has-cursor");
     };
-  }, []);
+  }, [enabled]);
 
+  if (!enabled) return null;
   return <div ref={ref} className="cursor-ring" aria-hidden />;
 }

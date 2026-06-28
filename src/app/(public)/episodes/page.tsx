@@ -1,5 +1,13 @@
 import EpisodeList from "@/components/EpisodeList";
+import SubscribeBand from "@/components/SubscribeBand";
 import { episodes } from "@/lib/episodes";
+
+export const metadata = {
+  title: "Episodes",
+  description:
+    "Every conversation from The Open Tab — long-form interviews recorded raw in Forbes, NSW by Max Reid.",
+  alternates: { canonical: "/episodes" },
+};
 
 export default function EpisodesPage() {
   return (
@@ -21,6 +29,9 @@ export default function EpisodesPage() {
 
       {/* Editorial list (released + coming soon) */}
       <EpisodeList episodes={episodes} showHeading={false} />
+
+      {/* Subscribe CTA */}
+      <SubscribeBand />
     </>
   );
 }

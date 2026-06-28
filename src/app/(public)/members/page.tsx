@@ -6,7 +6,19 @@ import SignOutButton from "./SignOutButton";
 
 export const dynamic = "force-dynamic";
 
-export default async function MembersPage() {
+export const metadata = {
+  title: "Members",
+  description:
+    "Become a founding member of The Open Tab — the vault of unreleased cuts, raw tapes, and behind-the-scenes is filling now. Early supporters get in first.",
+  alternates: { canonical: "/members" },
+};
+
+export default async function MembersPage({
+  searchParams,
+}: {
+  searchParams: { checkout?: string };
+}) {
+  const checkoutPending = searchParams?.checkout === "soon";
   // If Supabase isn't configured on this deploy, show a graceful state
   // instead of crashing the page.
   if (
@@ -65,7 +77,7 @@ export default async function MembersPage() {
 
   if (!profile?.is_subscriber) {
     return (
-      <Shell status="Signed in · Not a member yet">
+      <Shell status="Signed in · Founding member">
         <div className="flex items-center justify-between">
           <span className="font-mono text-[0.72rem] tracking-[0.22em] text-ghost uppercase">
             {user.email}
@@ -73,24 +85,42 @@ export default async function MembersPage() {
           <SignOutButton />
         </div>
         <h1 className="mt-8 font-condensed text-5xl md:text-7xl lg:text-8xl leading-[0.9] text-bone">
-          One step{" "}
-          <span className="font-display italic lowercase tracking-normal normal-case text-signal">away.</span>
+          Get in{" "}
+          <span className="font-display italic lowercase tracking-normal normal-case text-signal">early.</span>
         </h1>
         <p className="mt-8 font-display text-xl md:text-2xl leading-snug text-bone/85 tracking-snug max-w-2xl">
-          Become a member for <span className="text-signal">$5/month</span> to
-          unlock the vault — raw tapes, behind-the-scenes, and early access.
+          Founding membership is <span className="text-signal">$5/month</span> —
+          and we&apos;re opening it before the vault is full, not after. Early
+          supporters lock in first access to raw tapes, behind-the-scenes, and
+          every episode before it drops. The vault is filling now.
         </p>
-        <form action="/api/checkout" method="POST" className="mt-10">
-          <button
-            type="submit"
-            className="bg-signal text-ink px-7 py-4 font-mono text-[0.74rem] tracking-[0.22em] uppercase hover:bg-bone transition-colors"
-          >
-            Become a member · $5/mo →
-          </button>
-        </form>
-        <p className="mt-4 font-mono text-[0.78rem] text-ghost">
-          Secure checkout. Cancel anytime.
-        </p>
+        {checkoutPending ? (
+          <div className="mt-10 border border-signal/60 bg-signal/[0.06] px-6 py-5 max-w-2xl">
+            <p className="font-mono text-[0.72rem] tracking-[0.22em] text-signal uppercase">
+              ● You&apos;re on the list
+            </p>
+            <p className="mt-3 font-display text-lg leading-snug text-bone/90">
+              Founding membership is opening soon — we&apos;ll email you at{" "}
+              <span className="text-signal">{user.email}</span> the moment the
+              vault opens. No charge until then.
+            </p>
+          </div>
+        ) : (
+          <>
+            <form action="/api/checkout" method="POST" className="mt-10">
+              <button
+                type="submit"
+                className="bg-signal text-ink px-7 py-4 font-mono text-[0.74rem] tracking-[0.22em] uppercase hover:bg-bone transition-colors"
+              >
+                Join as a founding member →
+              </button>
+            </form>
+            <p className="mt-4 font-mono text-[0.78rem] text-ghost">
+              No charge yet — we&apos;ll only bill once the vault opens. Cancel
+              anytime.
+            </p>
+          </>
+        )}
       </Shell>
     );
   }

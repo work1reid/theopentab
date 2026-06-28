@@ -13,9 +13,9 @@ const milestones = [
   },
   {
     year: "May 2026",
-    place: "Studio One",
+    place: "The spare room",
     title: "Episode 01 — Cameron Sharp",
-    body: "Two hours with a musician who went viral singing to his 96-year-old grandparents. The first tab, finally closed — and the show begins.",
+    body: "A long sit-down with a musician who went viral singing to his 96-year-old grandparents. The first tab, finally closed — and the show begins.",
   },
 ];
 

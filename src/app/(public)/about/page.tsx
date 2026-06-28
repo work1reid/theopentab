@@ -1,3 +1,12 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About",
+  description:
+    "Max Reid, 18, runs a window-cleaning business in Forbes, NSW by day and records long, unscripted conversations at night. This is The Open Tab.",
+  alternates: { canonical: "/about" },
+};
+
 export default function AboutPage() {
   return (
     <>
@@ -39,6 +48,8 @@ export default function AboutPage() {
               <img
                 src="/about-max.jpg"
                 alt="Max Reid on the beach in Forbes, NSW"
+                loading="lazy"
+                decoding="async"
                 className="absolute inset-0 h-full w-full object-cover grayscale contrast-[1.05]"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-ink/50 via-transparent to-ink/10" />
@@ -83,8 +94,9 @@ export default function AboutPage() {
                   have something real to say but don&apos;t usually get asked.
                 </p>
                 <p className="mt-6 font-mono text-base md:text-lg text-bone/80 leading-relaxed">
-                  The format is long. Two-plus hours, edited honest. The guest
-                  sits down, we talk, nothing is scripted. I do a lot of research
+                  The format is long — usually one to three hours, edited
+                  honest. The guest sits down, we talk, nothing is scripted. I
+                  do a lot of research
                   beforehand so I can ask things they don&apos;t expect.
                 </p>
               </div>
