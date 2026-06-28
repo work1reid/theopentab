@@ -19,3 +19,6 @@ _hero-montage/
 /*.png
 /*.JPG
 /*.ttf
+
+# Supabase CLI local temp
+supabase/.temp/
