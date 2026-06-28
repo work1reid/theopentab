@@ -407,3 +407,68 @@ html.has-cursor select {
     opacity: 0;
   }
 }
+
+/* ============================================================
+   Long-form article body (/blog posts)
+   ============================================================ */
+.article {
+  font-family: "Playfair Display", ui-serif, Georgia, serif;
+  color: var(--bone);
+}
+.article > :first-child { margin-top: 0; }
+.article p {
+  font-size: 1.18rem;
+  line-height: 1.78;
+  margin: 1.5rem 0;
+  color: rgba(240, 240, 240, 0.86);
+}
+.article h2 {
+  font-family: "Anton", "Arial Narrow", system-ui, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  line-height: 0.98;
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  margin: 3.2rem 0 1.1rem;
+}
+.article h3 {
+  font-family: "Playfair Display", ui-serif, Georgia, serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  margin: 2.5rem 0 0.8rem;
+  color: var(--bone);
+}
+.article a {
+  color: var(--signal);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+.article a:hover { color: var(--bone); }
+.article strong { color: var(--bone); font-weight: 700; }
+.article em { font-style: italic; }
+.article ul, .article ol { margin: 1.5rem 0; padding-left: 1.4rem; }
+.article li {
+  font-size: 1.12rem;
+  line-height: 1.7;
+  margin: 0.5rem 0;
+  color: rgba(240, 240, 240, 0.86);
+}
+.article ul li { list-style: none; position: relative; }
+.article ul li::before {
+  content: "—";
+  position: absolute;
+  left: -1.4rem;
+  color: var(--signal);
+}
+.article ol { list-style: decimal; }
+.article blockquote {
+  border-left: 3px solid var(--signal);
+  padding-left: 1.4rem;
+  margin: 2.2rem 0;
+  font-style: italic;
+  font-size: 1.4rem;
+  line-height: 1.5;
+  color: var(--bone);
+}
+.article hr { border: 0; border-top: 1px solid var(--edge); margin: 3rem 0; }
+.article h2:first-child { margin-top: 0; }

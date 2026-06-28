@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { episodes } from "@/lib/episodes";
+import { getAllPosts } from "@/lib/blog";
 
 const SITE_URL = "https://theopentab.vercel.app";
 
@@ -7,6 +8,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes: MetadataRoute.Sitemap = [
     "/",
     "/episodes",
+    "/blog",
     "/about",
     "/members",
   ].map((path) => ({
@@ -19,5 +21,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: e.date ? new Date(e.date) : new Date(),
   }));
 
-  return [...staticRoutes, ...episodeRoutes];
+  const blogRoutes: MetadataRoute.Sitemap = getAllPosts().map((p) => ({
+    url: `${SITE_URL}/blog/${p.slug}`,
+    lastModified: p.date ? new Date(p.date) : new Date(),
+  }));
+
+  return [...staticRoutes, ...episodeRoutes, ...blogRoutes];
 }

@@ -8,6 +8,7 @@ import Magnetic from "@/components/Magnetic";
 const links = [
   { href: "/", label: "Index" },
   { href: "/episodes", label: "Episodes" },
+  { href: "/blog", label: "Writing" },
   { href: "/about", label: "About" },
   { href: "/members", label: "Members" },
 ];
