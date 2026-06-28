@@ -57,6 +57,9 @@ export const metadata: Metadata = {
     description: SITE_DESC,
     images: ["/ep1-cameron.jpg"],
   },
+  verification: {
+    google: "uR9UmdSoH7JNlTA-XJr6vTPyZjf7ceDkbVogFKSg3AY",
+  },
 };
 
 export default function RootLayout({
