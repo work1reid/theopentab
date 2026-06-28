@@ -16,9 +16,10 @@ export const metadata = {
 export default async function MembersPage({
   searchParams,
 }: {
-  searchParams: { checkout?: string };
+  searchParams: Promise<{ checkout?: string }>;
 }) {
-  const checkoutPending = searchParams?.checkout === "soon";
+  const { checkout } = await searchParams;
+  const checkoutPending = checkout === "soon";
   // If Supabase isn't configured on this deploy, show a graceful state
   // instead of crashing the page.
   if (
