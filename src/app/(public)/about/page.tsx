@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "About",
@@ -45,12 +46,12 @@ export default function AboutPage() {
           {/* Portrait + stats */}
           <div className="md:col-span-4">
             <div className="aspect-[3/4] bg-whisper border border-edge relative overflow-hidden scanlines">
-              <img
+              <Image
                 src="/about-max.jpg"
                 alt="Max Reid on the beach in Forbes, NSW"
-                loading="lazy"
-                decoding="async"
-                className="absolute inset-0 h-full w-full object-cover grayscale contrast-[1.05]"
+                fill
+                sizes="(max-width: 768px) 100vw, 33vw"
+                className="object-cover grayscale contrast-[1.05]"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-ink/50 via-transparent to-ink/10" />
               <div className="absolute top-4 left-4 font-mono text-[0.72rem] tracking-[0.22em] text-bone/80 uppercase">

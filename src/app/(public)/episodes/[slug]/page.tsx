@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import {
@@ -225,7 +226,7 @@ export default async function EpisodePage({
         <div className="mt-16 border-t border-edge pt-12">
           {ep.image && (
             <div className="relative aspect-video w-full border border-edge overflow-hidden mb-10">
-              <img src={ep.image} alt="" aria-hidden className="absolute inset-0 h-full w-full object-cover opacity-60" />
+              <Image src={ep.image} alt="" aria-hidden fill sizes="100vw" className="object-cover opacity-60" />
               <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-ink/20" />
             </div>
           )}

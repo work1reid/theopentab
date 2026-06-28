@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import PortraitWaveform from "@/components/PortraitWaveform";
 import Magnetic from "@/components/Magnetic";
 import { latest } from "@/lib/episodes";
@@ -42,10 +43,12 @@ export default function StatementIntro() {
         <div data-reveal data-reveal-delay="130" className="lg:col-span-5">
           <div className="relative">
             <div className="relative aspect-[4/5] bg-whisper border border-edge overflow-hidden scanlines">
-              <img
+              <Image
                 src="/portrait-max.jpg"
                 alt="Max Reid, host of The Open Tab, in Forbes, NSW"
-                className="absolute inset-0 h-full w-full object-cover grayscale contrast-[1.05]"
+                fill
+                sizes="(max-width: 1024px) 100vw, 42vw"
+                className="object-cover grayscale contrast-[1.05]"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-ink/10" />
               <div className="absolute top-5 left-5 font-mono text-[0.72rem] tracking-[0.22em] text-bone/85 uppercase">

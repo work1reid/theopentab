@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Episode, formatDate } from "@/lib/episodes";
 import Tilt from "@/components/Tilt";
 
@@ -61,10 +62,12 @@ export default function EpisodeList({
                   className="relative block aspect-video overflow-hidden border border-edge bg-whisper"
                   aria-label={`Watch ${ep.guest}`}
                 >
-                  <img
+                  <Image
                     src={ep.image}
                     alt={ep.guest}
-                    className="absolute inset-0 h-full w-full object-cover grayscale transition duration-500 group-hover:grayscale-0 group-hover:scale-[1.03]"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 42vw"
+                    className="object-cover grayscale transition duration-500 group-hover:grayscale-0 group-hover:scale-[1.03]"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-ink/40 to-transparent" />
                   <span className="absolute inset-0 flex items-center justify-center">
@@ -127,11 +130,13 @@ export default function EpisodeList({
               className="grid grid-cols-1 md:grid-cols-12 items-center gap-6 md:gap-10 border-t border-edge py-8 md:py-12 opacity-70"
             >
               <div className="relative block aspect-video overflow-hidden border border-edge bg-whisper md:col-span-5">
-                <img
+                <Image
                   src={ep.image}
                   alt=""
                   aria-hidden
-                  className="absolute inset-0 h-full w-full object-cover grayscale blur-[2px] opacity-50"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 42vw"
+                  className="object-cover grayscale blur-[2px] opacity-50"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-ink to-ink/40" />
                 <span className="absolute inset-0 flex items-center justify-center font-condensed text-2xl tracking-wider text-bone/60">

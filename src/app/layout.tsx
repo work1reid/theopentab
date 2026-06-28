@@ -50,9 +50,9 @@ export const metadata: Metadata = {
     ],
   },
   twitter: {
+    // No X/Twitter account yet — card still renders when others share links.
+    // Add `site`/`creator` @handles here once an account exists.
     card: "summary_large_image",
-    site: "@_theopentab",
-    creator: "@_theopentab",
     title: "The Open Tab — Unearthing the uncommon",
     description: SITE_DESC,
     images: ["/ep1-cameron.jpg"],
