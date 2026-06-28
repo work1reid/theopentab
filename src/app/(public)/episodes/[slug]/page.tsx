@@ -9,6 +9,7 @@ import {
   youtubeId,
   spotifyEmbed,
 } from "@/lib/episodes";
+import { getPostByEpisode } from "@/lib/blog";
 
 const SITE = "https://theopentab.vercel.app";
 
@@ -64,6 +65,7 @@ export default async function EpisodePage({
 
   const ytId = youtubeId(ep.youtube);
   const spotify = spotifyEmbed(ep.spotify);
+  const article = getPostByEpisode(ep.slug);
 
   const canonicalUrl = `${SITE}/episodes/${slug}`;
   const mediaUrl =
@@ -200,6 +202,23 @@ export default async function EpisodePage({
               <p className="font-mono text-base md:text-lg text-bone/80 leading-relaxed max-w-2xl">
                 {ep.description}
               </p>
+
+              {article && (
+                <Link
+                  href={`/blog/${article.slug}`}
+                  className="group mt-8 flex items-baseline justify-between gap-6 border border-edge px-5 py-4 max-w-2xl hover:border-signal transition-colors"
+                >
+                  <span className="font-mono text-[0.74rem] tracking-[0.22em] uppercase text-ghost">
+                    Read the deep-dive
+                    <span className="block mt-1 font-display text-lg normal-case tracking-normal text-bone group-hover:text-signal transition-colors">
+                      {article.title}
+                    </span>
+                  </span>
+                  <span className="font-condensed text-base tracking-wider text-signal whitespace-nowrap">
+                    Read →
+                  </span>
+                </Link>
+              )}
 
               {ep.highlights.length > 0 && (
                 <div className="mt-12">

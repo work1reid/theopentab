@@ -53,3 +53,8 @@ export function getAllPosts(): BlogPost[] {
 export function getPost(slug: string): BlogPost | null {
   return getAllPosts().find((p) => p.slug === slug) ?? null;
 }
+
+// Find the published article that covers a given episode (for cross-linking).
+export function getPostByEpisode(episodeSlug: string): BlogPost | null {
+  return getAllPosts().find((p) => p.episodeSlug === episodeSlug) ?? null;
+}
