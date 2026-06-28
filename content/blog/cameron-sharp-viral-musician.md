@@ -3,7 +3,9 @@ title: "Cameron Sharp: How a Lounge-Room Song for His 96-Year-Old Grandparents H
 description: "The Forbes musician on the spur-of-the-moment video that went viral — Lukas Graham commented, Crowded House shared it — and the 17 years of grassroots grind that made him ready for the moment."
 date: "2026-06-28"
 guest: "Cameron Sharp"
+guestSlug: "cameron-sharp"
 episodeSlug: "cameron-sharp"
+pillar: true
 ogImage: "/ep1-cameron.jpg"
 keywords:
   - "Cameron Sharp"
