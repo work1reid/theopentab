@@ -36,6 +36,17 @@ create table if not exists public.post_files (
   created_at timestamptz default now()
 );
 
+-- 3b. WAITLIST (founding-member email capture, pre-launch)
+create table if not exists public.waitlist (
+  id         uuid primary key default gen_random_uuid(),
+  email      text unique not null,
+  source     text default 'members',
+  created_at timestamptz default now()
+);
+-- RLS on with NO policies = locked: only the server (service-role key) can
+-- read/write. The /api/waitlist route inserts with the service role.
+alter table public.waitlist enable row level security;
+
 -- ============================================================
 -- ROW LEVEL SECURITY
 -- ============================================================

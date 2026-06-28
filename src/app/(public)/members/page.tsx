@@ -1,7 +1,7 @@
 import { createClient } from "@/lib/supabase/server";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { formatDate } from "@/lib/episodes";
-import MemberAuth from "./MemberAuth";
+import MemberGate from "./MemberGate";
 import SignOutButton from "./SignOutButton";
 
 export const dynamic = "force-dynamic";
@@ -47,10 +47,10 @@ export default async function MembersPage({
     data: { user },
   } = await supabase.auth.getUser();
 
-  // ── Logged OUT: pitch + auth ──────────────────────────────
+  // ── Logged OUT: founding-member pitch + waitlist (email first) ──
   if (!user) {
     return (
-      <Shell status="Locked · Members only">
+      <Shell status="Founding members · Get in early">
         <h1 className="font-condensed text-5xl md:text-7xl lg:text-8xl leading-[0.9] text-bone">
           The other{" "}
           <span className="font-display italic lowercase tracking-normal normal-case text-signal">
@@ -58,12 +58,17 @@ export default async function MembersPage({
           </span>
         </h1>
         <p className="mt-8 font-display text-xl md:text-2xl leading-snug text-bone/85 tracking-snug max-w-2xl">
-          A second tape. Always longer. Often heavier. Members get the
-          unreleased cuts, raw tapes, behind-the-scenes, and every episode
-          before it drops publicly.
+          A second tape. Always longer. Often heavier — the unreleased cuts, raw
+          tapes, and behind-the-scenes. Founding members get in{" "}
+          <span className="text-signal">before the vault is full</span>, not
+          after.
+        </p>
+        <p className="mt-5 font-mono text-[0.8rem] text-ghost leading-relaxed max-w-2xl">
+          Drop your email and you&apos;ll be first in line when it opens. No
+          account, no password, no charge yet.
         </p>
         <div className="mt-12">
-          <MemberAuth />
+          <MemberGate />
         </div>
       </Shell>
     );
