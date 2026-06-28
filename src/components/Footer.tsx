@@ -51,11 +51,14 @@ function Col({
 
 export default function Footer() {
   return (
-    <footer className="relative border-t border-edge">
-      {/* Thin signal hairline */}
-      <div className="h-px w-full bg-signal/70" />
+    <footer className="relative bg-black">
+      {/* Defined signal divider — clear "page ends here" marker */}
+      <div className="h-0.5 w-full bg-signal" />
 
-      <div className="mx-auto max-w-[1600px] px-6 md:px-10 py-14 md:py-16">
+      {/* Elevated lip: a subtle highlight at the top edge separates the footer
+          surface from the page above it */}
+      <div className="bg-gradient-to-b from-white/[0.04] to-transparent">
+        <div className="mx-auto max-w-[1600px] px-6 md:px-10 py-14 md:py-16">
         <div className="grid grid-cols-1 gap-10 md:grid-cols-12 md:gap-8">
           {/* Brand + CTA */}
           <div className="md:col-span-5 lg:col-span-4">
@@ -94,6 +97,17 @@ export default function Footer() {
             @the_opentab
           </a>
           <span>Hosted by Max Reid</span>
+        </div>
+
+          {/* Back-to-top end cap */}
+          <div className="mt-10 flex justify-center">
+            <a
+              href="#"
+              className="font-mono text-[0.66rem] tracking-[0.24em] uppercase text-ghost transition-colors hover:text-signal"
+            >
+              ↑ Back to top
+            </a>
+          </div>
         </div>
       </div>
     </footer>
