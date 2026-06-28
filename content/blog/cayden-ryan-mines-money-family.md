@@ -3,7 +3,9 @@ title: "Cayden Ryan: Four Years in the Mines, the Real Truth About the Money, an
 description: "A 23-year-old miner gets honest about what the job actually pays, the work ethic it takes to last, why he'd retire his parents before buying a Lamborghini, and the habit he's trying to break."
 date: "2026-06-28"
 guest: "Cayden Ryan"
+guestSlug: "cayden-ryan"
 episodeSlug: "cayden-ryan"
+pillar: true
 ogImage: "/cayden-ryan.jpg"
 keywords:
   - "Cayden Ryan"

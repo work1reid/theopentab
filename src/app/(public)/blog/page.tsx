@@ -1,32 +1,25 @@
 import Link from "next/link";
 import SubscribeBand from "@/components/SubscribeBand";
-import { getAllPosts } from "@/lib/blog";
+import { getGuestGroups } from "@/lib/blog";
 
 export const metadata = {
   title: "Writing",
   description:
-    "Deep-dives, guest stories and highlights from The Open Tab — long-form interviews recorded raw in Forbes, NSW by Max Reid.",
+    "Deep-dives, guest stories and standout moments from The Open Tab — long-form interviews recorded raw in Forbes, NSW by Max Reid.",
   alternates: { canonical: "/blog" },
 };
 
-function fmt(d: string) {
-  if (!d) return "";
-  return new Date(d).toLocaleDateString("en-AU", {
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-  });
-}
-
 export default function BlogIndex() {
-  const posts = getAllPosts();
+  const groups = getGuestGroups();
+  const total = groups.reduce((n, g) => n + g.all.length, 0);
 
   return (
     <>
       <section className="scanlines border-b border-edge">
         <div className="mx-auto max-w-[1600px] px-6 md:px-10 pt-12 md:pt-20 pb-12 md:pb-16">
           <div className="tick font-mono text-[0.74rem] tracking-[0.22em] text-ghost uppercase reveal">
-            Writing · {posts.length} {posts.length === 1 ? "piece" : "pieces"}
+            Writing · {total} {total === 1 ? "piece" : "pieces"} ·{" "}
+            {groups.length} {groups.length === 1 ? "guest" : "guests"}
           </div>
           <h1 className="mt-6 md:mt-8 font-condensed text-6xl md:text-8xl lg:text-9xl leading-[0.86] text-bone reveal reveal-2">
             The{" "}
@@ -37,42 +30,69 @@ export default function BlogIndex() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-[1600px] px-6 md:px-10 py-12 md:py-20">
-        {posts.length === 0 ? (
+      <section className="mx-auto max-w-[1600px] px-6 md:px-10 py-12 md:py-20 space-y-16">
+        {groups.length === 0 ? (
           <p className="font-mono text-sm text-ghost">Nothing published yet.</p>
         ) : (
-          <div className="divide-y divide-edge">
-            {posts.map((p, i) => (
-              <article key={p.slug} data-reveal data-reveal-delay={`${i * 60}`}>
+          groups.map((g) => (
+            <div key={g.guestSlug} data-reveal>
+              {/* Guest category header */}
+              <div className="flex items-baseline justify-between gap-6 border-b border-edge pb-4">
                 <Link
-                  href={`/blog/${p.slug}`}
-                  className="group grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-10 py-8 md:py-12"
+                  href={`/blog/guest/${g.guestSlug}`}
+                  className="group font-condensed text-3xl md:text-5xl leading-none text-bone hover:text-signal transition-colors"
                 >
-                  <div className="md:col-span-3 font-mono text-[0.72rem] tracking-[0.22em] uppercase text-ghost">
-                    <div>{fmt(p.date)}</div>
-                    <div className="mt-2">{p.readingMinutes} min read</div>
-                    {p.guest && <div className="mt-2 text-signal">{p.guest}</div>}
-                    {p.draft && (
-                      <div className="mt-2 text-signal border border-signal/40 inline-block px-2 py-0.5">
-                        Draft
-                      </div>
-                    )}
-                  </div>
-                  <div className="md:col-span-9">
-                    <h2 className="font-display text-3xl md:text-5xl leading-[1.02] tracking-snug text-bone transition-colors group-hover:text-signal">
-                      {p.title}
-                    </h2>
-                    <p className="mt-4 max-w-3xl font-mono text-[0.92rem] leading-relaxed text-ghost">
-                      {p.description}
-                    </p>
-                    <span className="mt-5 inline-flex items-center gap-2 font-condensed text-base tracking-wider text-signal">
-                      Read <span aria-hidden>→</span>
-                    </span>
-                  </div>
+                  {g.guest}
                 </Link>
-              </article>
-            ))}
-          </div>
+                <Link
+                  href={`/blog/guest/${g.guestSlug}`}
+                  className="font-mono text-[0.72rem] tracking-[0.22em] uppercase text-ghost hover:text-signal transition-colors whitespace-nowrap"
+                >
+                  All {g.all.length} →
+                </Link>
+              </div>
+
+              {/* Pillar */}
+              {g.pillar && (
+                <Link
+                  href={`/blog/${g.pillar.slug}`}
+                  className="group mt-6 block"
+                >
+                  <div className="font-mono text-[0.7rem] tracking-[0.22em] uppercase text-signal mb-2">
+                    The full story
+                  </div>
+                  <h2 className="font-display text-2xl md:text-4xl leading-[1.05] tracking-snug text-bone group-hover:text-signal transition-colors max-w-4xl">
+                    {g.pillar.title}
+                  </h2>
+                </Link>
+              )}
+
+              {/* Cluster topics */}
+              {g.clusters.length > 0 && (
+                <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-edge border border-edge">
+                  {g.clusters.map((p) => (
+                    <Link
+                      key={p.slug}
+                      href={`/blog/${p.slug}`}
+                      className="group bg-ink p-5 hover:bg-whisper transition-colors"
+                    >
+                      {p.topic && (
+                        <div className="font-mono text-[0.68rem] tracking-[0.22em] uppercase text-signal mb-2">
+                          {p.topic}
+                        </div>
+                      )}
+                      <div className="font-display text-lg leading-snug text-bone group-hover:text-signal transition-colors">
+                        {p.title}
+                      </div>
+                      <div className="mt-3 font-mono text-[0.68rem] tracking-[0.18em] uppercase text-ghost">
+                        {p.readingMinutes} min read
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+          ))
         )}
       </section>
 

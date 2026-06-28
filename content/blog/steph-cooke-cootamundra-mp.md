@@ -3,7 +3,9 @@ title: "Steph Cooke: The Accidental MP Who Wakes at 4:35am to Represent an Area 
 description: "The Member for Cootamundra on winning a brutal by-election she never expected to win, running 177 towns on 4:35am starts, and why she solves problems 'with people, not for them.'"
 date: "2026-06-28"
 guest: "Steph Cooke"
+guestSlug: "steph-cooke"
 episodeSlug: "steph-cooke"
+pillar: true
 ogImage: "/steph-cooke.jpg"
 keywords:
   - "Steph Cooke"
@@ -38,7 +40,7 @@ Cooke was elected at the Cootamundra by-election on 14 October 2017 — and she 
 
 "The margin of this seat was more than halved," she recalls. "There was a real protest vote. I could sense the anger in the communities as I moved around asking people to vote for me."
 
-She describes almost falling over the line — a "Steven Bradbury," in her words. But there was no grace period. Sworn in three weeks later, she refused to waste the gap: the very next day after the by-election she turned up at a local car show, and says she's been turning up every day since.
+She describes almost falling over the line — a "Steven Bradbury," in her words. But there was no grace period. Sworn in three weeks later, she refused to waste the gap: the very next day after the by-election she turned up at the local Cowra show, and says she's been turning up every day since.
 
 ## 4:35am, every single day
 

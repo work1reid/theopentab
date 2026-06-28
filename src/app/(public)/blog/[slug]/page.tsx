@@ -2,7 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { marked } from "marked";
-import { getAllPosts, getPost } from "@/lib/blog";
+import { getAllPosts, getPost, getRelatedPosts } from "@/lib/blog";
 import { getEpisode } from "@/lib/episodes";
 
 const SITE = "https://theopentab.vercel.app";
@@ -63,6 +63,7 @@ export default async function BlogPost({
   const html = await marked.parse(post.content);
   const image = post.ogImage ?? "/ep1-cameron.jpg";
   const ep = post.episodeSlug ? getEpisode(post.episodeSlug) : null;
+  const related = getRelatedPosts(post);
 
   const articleLd = {
     "@context": "https://schema.org",
@@ -157,6 +158,41 @@ export default async function BlogPost({
                 Listen →
               </span>
             </Link>
+          </div>
+        )}
+
+        {/* More from this guest */}
+        {related.length > 0 && post.guestSlug && (
+          <div className="mt-16 border-t border-edge pt-10">
+            <div className="flex items-baseline justify-between gap-6">
+              <div className="font-mono text-[0.72rem] tracking-[0.22em] uppercase text-ghost">
+                More from {post.guest}
+              </div>
+              <Link
+                href={`/blog/guest/${post.guestSlug}`}
+                className="font-mono text-[0.72rem] tracking-[0.22em] uppercase text-signal hover:text-bone transition-colors whitespace-nowrap"
+              >
+                All →
+              </Link>
+            </div>
+            <div className="mt-5 divide-y divide-edge">
+              {related.slice(0, 5).map((p) => (
+                <Link
+                  key={p.slug}
+                  href={`/blog/${p.slug}`}
+                  className="group flex items-baseline justify-between gap-6 py-4"
+                >
+                  <span className="font-display text-lg md:text-xl leading-snug text-bone group-hover:text-signal transition-colors">
+                    {p.title}
+                  </span>
+                  {p.topic && (
+                    <span className="font-mono text-[0.68rem] tracking-[0.2em] uppercase text-ghost whitespace-nowrap">
+                      {p.topic}
+                    </span>
+                  )}
+                </Link>
+              ))}
+            </div>
           </div>
         )}
       </div>
