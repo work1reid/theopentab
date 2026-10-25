@@ -67,6 +67,28 @@
   },
   {
     "number": "04",
+    "slug": "lenny-iyer",
+    "guest": "Lenny Iyer",
+    "title": "The Year 10 Kid Doing 10 Triathlons in 10 Days",
+    "tagline": "Ten Olympic-distance triathlons, shin splints, and $6,300 raised before day one.",
+    "description": "Lenny Iyer is in Year 10 in Forbes, and he's doing ten Olympic-distance triathlons in ten days, fitted around school, for Nedd Brockmann's Uncomfortable challenge and We Are Mobilise. He'd never done a triathlon. He'd only just started road cycling. He has shin splints. We sat down by Lake Forbes the night before day one.",
+    "date": "2026-10-25",
+    "duration": "19m",
+    "city": "Forbes, NSW",
+    "released": true,
+    "image": "/lenny-iyer.jpg",
+    "spotify": "https://open.spotify.com/episode/36dKglSOpiiYBMs6g4izwB",
+    "apple": "#",
+    "youtube": "#",
+    "highlights": [
+      "Ten Olympic triathlons in ten days, before he's ever done one",
+      "122 km run by the whole school for 122,000 Australians sleeping rough",
+      "Meeting Nedd Brockmann by chance at the Apple Store",
+      "A marathon three days after the final triathlon"
+    ]
+  },
+  {
+    "number": "05",
     "slug": "prime-ministers-pilot",
     "guest": "The Prime Minister's Pilot",
     "title": "The Prime Minister's Pilot",
