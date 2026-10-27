@@ -14,6 +14,14 @@ export async function middleware(request: NextRequest) {
     return response;
   }
 
+  // Visitors without a Supabase session cookie have nothing to refresh.
+  const hasSession = request.cookies
+    .getAll()
+    .some(({ name }) => name.startsWith("sb-"));
+  if (!hasSession) {
+    return response;
+  }
+
   const supabase = createServerClient(
     supabaseUrl,
     supabaseKey,
@@ -35,9 +43,13 @@ export async function middleware(request: NextRequest) {
     }
   );
 
-  // Touch the session so it refreshes; does not block anything.
+  // Touch the session so it refreshes. Capped at 2s so a slow or paused
+  // Supabase project can't time out every page on the site.
   try {
-    await supabase.auth.getUser();
+    await Promise.race([
+      supabase.auth.getUser(),
+      new Promise((resolve) => setTimeout(resolve, 2000)),
+    ]);
   } catch {
     // Never let an auth hiccup take down page rendering.
   }
